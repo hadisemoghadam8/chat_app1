@@ -366,14 +366,8 @@ class ChatApp:
         """
         self.listbox.delete(0, tk.END)
         for ip, info in self.peers.items():
-            # استفاده از دایره رنگی واقعی با Unicode یا آیکون دقیق
-            if info.get("online"):
-                status_symbol = "🟢"  # دایره سبز
-            else:
-                status_symbol = "🔴"  # دایره قرمز
-
-            label = f"{status_symbol}  {ip}:{info['port']}"
-
+            status = "🟢" if info.get("online") else "🔴"
+            label = f"{ip}:{info['port']} {status}"
             if ip in self.new_msg_peers:
                 label = f"⭐ {label}"
             self.listbox.insert(tk.END, label)
@@ -473,6 +467,7 @@ class ChatApp:
                     continue
                 sender = "me" if msg["dir"] == "out" else "you"
                 add_bubble(sender, msg["msg"], msg["time"])
+
         # نوار پایین
         bottom = tk.Frame(win, bg="#f0f2f7")
         bottom.pack(fill="x", padx=10, pady=8)
@@ -492,22 +487,10 @@ class ChatApp:
             else:
                 add_bubble("system", "[Send failed]")
 
-        # دکمه ارسال با آیکون مثلثی 📤
-        send_btn = tk.Button(
-            bottom,
-            text="📤",
-            bg="#5b9bd5",
-            fg="white",
-            font=("Segoe UI", 13, "bold"),
-            relief="flat",
-            activebackground="#4a8cd5",
-            cursor="hand2",
-            width=4,
-            command=send_msg
-        )
-        send_btn.pack(side="right", padx=5, pady=5)
-
-
+        send_btn = tk.Button(bottom, text="✈️", bg="#5b9bd5", fg="white",
+                             font=("Segoe UI", 11, "bold"), relief="flat",
+                             width=4, command=send_msg)
+        send_btn.pack(side="right")
 
         self.chat_windows[ip] = (win, scroll_frame)
 
