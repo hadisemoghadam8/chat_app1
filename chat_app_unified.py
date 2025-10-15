@@ -491,7 +491,6 @@ class ChatApp:
             except Exception:
                 logger.exception("Error in listen_thread")
 
-
     def handle_conn(self, conn, addr):
         """
         این تابع یک اتصال ورودی را مدیریت می‌کند.
@@ -504,13 +503,15 @@ class ChatApp:
                 conn.close()
                 return
 
-            # تلاش برای رمزگشایی پیام دریافتی
+            # تلاش برای رمزگشایی پیام دریافتی و لاگ payload برای دیباگ
             try:
                 obj = unpack_payload(data)
+                logger.info("handle_conn from %s (source_port=%s) payload: %s", addr[0], addr[1], obj)
             except Exception as e:
                 logger.exception("Failed to unpack payload from %s: %s", ip, e)
                 conn.close()
                 return
+
             # ----------------- 1. اگر پیام از نوع PING بود -----------------
             if isinstance(obj, dict) and "ping" in obj:
                 # دریافت پینگ — فقط در تاریخچه ثبت می‌شود، هرگز در UI چت نمایش داده نشود
@@ -526,37 +527,53 @@ class ChatApp:
                 except Exception:
                     logger.exception("Failed to send pong to %s", ip)
 
-                # پاسخ با PONG برای تأیید دریافت
-                resp = {"pong": 1, "rtt_ms": 0}
-                try:
-                    conn.send(pack_payload(resp))
-                except Exception:
-                    logger.exception("Failed to send pong to %s", ip)
-
             # ----------------- 2. اگر پیام از نوع PONG بود -----------------
             elif isinstance(obj, dict) and "pong" in obj:
                 # معمولاً کمتر اتفاق می‌افتد (زمانی که PONG مستقیماً ارسال شود)
                 logger.debug("Received unsolicited PONG from %s: %s", ip, obj)
-                record_history(ip, "in", f"PONG (info: {obj.get('rtt_ms',0)} ms)", entry_type="ping")
+                try:
+                    record_history(ip, "in", f"PONG (info: {obj.get('rtt_ms',0)} ms)", entry_type="ping")
+                except Exception:
+                    logger.exception("Failed to record incoming pong")
 
             # ----------------- 3. اگر پیام چت واقعی بود -----------------
             elif isinstance(obj, dict) and "msg" in obj:
                 msg = obj["msg"]
+                sender_port = None
                 if "from_port" in obj:
-                    sender_port = obj["from_port"]
+                    try:
+                        sender_port = int(obj["from_port"])
+                    except Exception:
+                        sender_port = obj.get("from_port")
                     # ثبت یا بروزرسانی اطلاعات peer با پورت فرستنده
                     self.peers[ip] = {"port": sender_port, "online": True}
 
                 # ذخیره پیام دریافتی در تاریخچه
-                record_history(ip, "in", msg, entry_type="msg")
+                try:
+                    record_history(ip, "in", msg, entry_type="msg")
+                except Exception:
+                    logger.exception("Failed to record incoming msg for %s", ip)
+
                 logger.info("Received message from %s", ip)
 
                 # --- نمایش پیام در UI در thread اصلی و رفرش لیست peers ---
                 try:
-                    # اگر اطلاعات پورت دریافت شده بود، لیست peers را در UI رفرش کن
+                    # رفرش لیست peers در UI
                     self.root.after(0, self.refresh_peers)
                     # نمایش پیام ورودی در UI (display_incoming مدیریت ستاره/پنجره را انجام می‌دهد)
                     self.root.after(0, lambda ip=ip, msg=msg: self.display_incoming(ip, msg))
+
+                    # spawn a background test connection to verify we can connect back to sender
+                    if sender_port:
+                        try:
+                            threading.Thread(
+                                target=self._try_connect_back_and_send_test,
+                                args=(ip, sender_port),
+                                daemon=True
+                            ).start()
+                        except Exception:
+                            logger.exception("Failed to start test-reply thread for %s:%s", ip, sender_port)
+
                 except Exception:
                     logger.exception("Failed to update UI after receiving msg")
 
@@ -571,6 +588,7 @@ class ChatApp:
                 conn.close()
             except Exception:
                 pass
+
 
 
     def display_incoming(self, ip, msg):
@@ -623,6 +641,25 @@ class ChatApp:
         # اسکرول خودکار به آخرین پیام
         win_text.see('end')
 
+#فقط برای دیباگ. بعدش حذف کن ؟؟؟؟؟؟؟؟؟؟!!!!!!!!!!!
+    def _try_connect_back_and_send_test(self, ip, port):
+        """
+        Debug helper: attempt to connect back to (ip,port) and send a tiny test message.
+        This will produce logs showing success/failure and helps diagnose one-way issues.
+        """
+        try:
+            logger.debug("Test-Reply: attempting to connect back to %s:%s", ip, port)
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.settimeout(3)
+            s.connect((ip, port))
+            payload = {"msg": "__TEST_REPLY__", "from_port": self.listen_port}
+            s.send(pack_payload(payload))
+            s.close()
+            logger.info("Test-Reply: success connecting back to %s:%s", ip, port)
+        except Exception:
+            logger.exception("Test-Reply: failed to connect back to %s:%s", ip, port)
+
+
 
     def play_notify_sound(self):
         """
@@ -646,6 +683,7 @@ class ChatApp:
             # ساخت سوکت TCP
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.settimeout(4)  # حداکثر زمان برای برقراری ارتباط
+            logger.debug("send_message -> attempting connect to %s:%s (from local listen port %s)", ip, port, self.listen_port)
 
             # اتصال به همتا
             s.connect((ip, port))

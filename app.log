@@ -604,3 +604,179 @@ Traceback (most recent call last):
 TimeoutError: timed out
 2025-10-16 00:16:55,817 [INFO] Starting p2p chat app. SHARED_KEY set: no
 2025-10-16 00:16:55,877 [INFO] Bound to saved port 10834
+2025-10-16 00:19:51,632 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-16 00:19:51,666 [INFO] Bound to saved port 10834
+2025-10-16 00:20:06,812 [ERROR] manual_connect failed
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 339, in manual_connect
+    ip, port = txt.split(":")
+    ^^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 1)
+2025-10-16 00:20:24,736 [ERROR] manual_connect failed
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 339, in manual_connect
+    ip, port = txt.split(":")
+    ^^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 1)
+2025-10-16 00:20:56,851 [DEBUG] Ping to 192.168.1.53 success 0 ms
+2025-10-16 00:20:57,490 [INFO] User added peer 192.168.1.53:58516
+2025-10-16 00:21:01,861 [ERROR] Failed to unpack pong from 192.168.1.53: Not JSON
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 228, in unpack_payload
+    obj = json.loads(data)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 348, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 25 (char 24)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 714, in ping_peer
+    obj = unpack_payload(data) if data else {}
+          ~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 230, in unpack_payload
+    raise ValueError("Not JSON")
+ValueError: Not JSON
+2025-10-16 00:21:04,750 [INFO] Sent message to 192.168.1.53
+2025-10-16 00:21:06,947 [DEBUG] Ping to 192.168.1.53 success 0 ms
+2025-10-16 00:21:11,974 [DEBUG] Ping to 192.168.1.53 success 0 ms
+2025-10-16 00:21:17,001 [DEBUG] Ping to 192.168.1.53 success 0 ms
+2025-10-16 00:21:22,024 [ERROR] Failed to unpack pong from 192.168.1.53: Not JSON
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 228, in unpack_payload
+    obj = json.loads(data)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 348, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 25 (char 24)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 714, in ping_peer
+    obj = unpack_payload(data) if data else {}
+          ~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 230, in unpack_payload
+    raise ValueError("Not JSON")
+ValueError: Not JSON
+2025-10-16 00:21:27,056 [ERROR] Failed to unpack pong from 192.168.1.53: Not JSON
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 228, in unpack_payload
+    obj = json.loads(data)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 348, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 25 (char 24)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 714, in ping_peer
+    obj = unpack_payload(data) if data else {}
+          ~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 230, in unpack_payload
+    raise ValueError("Not JSON")
+ValueError: Not JSON
+2025-10-16 00:21:32,070 [ERROR] Failed to unpack pong from 192.168.1.53: Not JSON
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 228, in unpack_payload
+    obj = json.loads(data)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 348, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 25 (char 24)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 714, in ping_peer
+    obj = unpack_payload(data) if data else {}
+          ~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 230, in unpack_payload
+    raise ValueError("Not JSON")
+ValueError: Not JSON
+2025-10-16 00:21:37,092 [ERROR] Failed to unpack pong from 192.168.1.53: Not JSON
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 228, in unpack_payload
+    obj = json.loads(data)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 348, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 25 (char 24)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 714, in ping_peer
+    obj = unpack_payload(data) if data else {}
+          ~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 230, in unpack_payload
+    raise ValueError("Not JSON")
+ValueError: Not JSON
+2025-10-16 00:21:42,130 [ERROR] Failed to unpack pong from 192.168.1.53: Not JSON
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 228, in unpack_payload
+    obj = json.loads(data)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 348, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 25 (char 24)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 714, in ping_peer
+    obj = unpack_payload(data) if data else {}
+          ~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 230, in unpack_payload
+    raise ValueError("Not JSON")
+ValueError: Not JSON
+2025-10-16 00:21:47,158 [ERROR] Failed to unpack pong from 192.168.1.53: Not JSON
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 228, in unpack_payload
+    obj = json.loads(data)
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^
+  File "C:\Users\ASUS\AppData\Local\Programs\Python\Python313\Lib\json\decoder.py", line 348, in decode
+    raise JSONDecodeError("Extra data", s, end)
+json.decoder.JSONDecodeError: Extra data: line 1 column 25 (char 24)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 714, in ping_peer
+    obj = unpack_payload(data) if data else {}
+          ~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 230, in unpack_payload
+    raise ValueError("Not JSON")
+ValueError: Not JSON
+2025-10-16 00:21:54,431 [ERROR] ping_peer failed for 192.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 694, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-16 00:22:06,359 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-16 00:22:06,399 [INFO] Bound to saved port 10834
+2025-10-16 00:22:27,365 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-16 00:22:27,398 [INFO] Bound to saved port 10834
+2025-10-16 00:22:52,486 [DEBUG] Received PING from 192.168.1.53
+2025-10-16 00:22:58,122 [DEBUG] Received PING from 192.168.1.53
+2025-10-16 00:23:03,239 [DEBUG] Received PING from 192.168.1.53
+2025-10-16 00:23:03,397 [INFO] Received message from 192.168.1.53
+2025-10-16 00:23:07,553 [DEBUG] Ping to 192.168.1.53 success 0 ms
+2025-10-16 00:23:08,254 [DEBUG] Received PING from 192.168.1.53

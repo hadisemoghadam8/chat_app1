@@ -380,6 +380,72 @@
       "dir": "out",
       "msg": "سلس",
       "type": "msg"
+    },
+    {
+      "time": "2025-10-16 00:20:56",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-16 00:21:04",
+      "dir": "out",
+      "msg": ",,c,c",
+      "type": "msg"
+    },
+    {
+      "time": "2025-10-16 00:21:06",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-16 00:21:11",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-16 00:21:16",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-16 00:22:52",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-16 00:22:58",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-16 00:23:03",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-16 00:23:03",
+      "dir": "in",
+      "msg": "jkjk",
+      "type": "msg"
+    },
+    {
+      "time": "2025-10-16 00:23:07",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-16 00:23:08",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
     }
   ]
 }
