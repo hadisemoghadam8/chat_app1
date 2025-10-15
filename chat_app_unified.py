@@ -566,6 +566,9 @@ class ChatApp:
                     logger.exception("Failed to record incoming msg for %s", ip)
 
                 logger.info("Received message from %s", ip)
+                if sender_port:
+                    self.peers[ip] = {"port": sender_port, "online": True}
+                    logger.debug("Updated peer %s port to %s", ip, sender_port)
 
                 # رفرش لیست peers و نمایش پیام در UI
                 try:
