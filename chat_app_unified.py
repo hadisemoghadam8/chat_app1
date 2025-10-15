@@ -150,21 +150,13 @@ def record_history(peer, direction, content, entry_type="msg"):
 # ----------------- تابع گرفتن IP محلی -----------------
 def get_local_ip():
     try:
-        # دریافت hostname سیستم
-        hostname = socket.gethostname()
-
-        # تبدیل hostname به IP
-        local_ip = socket.gethostbyname(hostname)
-
-        # اگر IP به صورت 127.x.x.x بود یعنی فقط لوکال لوپ‌بک است (localhost)
-        if local_ip.startswith("127."):
-            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-            try:
-                s.connect(("192.168.0.1", 1))
-                local_ip = s.getsockname()[0]
-            finally:
-                s.close()
-
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        try:
+            # کانکت کردن به یک آدرس عمومی بدون ارسال دیتا برای دریافت IP محلی
+            s.connect(("8.8.8.8", 80))
+            local_ip = s.getsockname()[0]
+        finally:
+            s.close()
         return local_ip
     except Exception:
         return "127.0.0.1"
@@ -519,15 +511,20 @@ class ChatApp:
                 logger.exception("Failed to unpack payload from %s: %s", ip, e)
                 conn.close()
                 return
-
             # ----------------- 1. اگر پیام از نوع PING بود -----------------
             if isinstance(obj, dict) and "ping" in obj:
-                # ثبت پینگ دریافتی در تاریخچه
-                #record_history(ip, "in", "PING (received)", entry_type="ping")
+                # دریافت پینگ — فقط در تاریخچه ثبت می‌شود، هرگز در UI چت نمایش داده نشود
                 logger.debug("Received PING from %s", ip)
-
-                # نمایش پینگ دریافتی در UI (اگر چت باز باشد)
-                self.root.after(0, lambda ip=ip: self.append_to_chat_window(ip, ip, "PING (received)"))
+                try:
+                    record_history(ip, "in", "PING (received)", entry_type="ping")
+                except Exception:
+                    logger.exception("Failed to record incoming ping")
+                # پاسخ با یک PONG (ارسال تنها یک بار)
+                resp = {"pong": 1, "rtt_ms": 0}
+                try:
+                    conn.send(pack_payload(resp))
+                except Exception:
+                    logger.exception("Failed to send pong to %s", ip)
 
                 # پاسخ با PONG برای تأیید دریافت
                 resp = {"pong": 1, "rtt_ms": 0}
@@ -547,13 +544,21 @@ class ChatApp:
                 msg = obj["msg"]
                 if "from_port" in obj:
                     sender_port = obj["from_port"]
+                    # ثبت یا بروزرسانی اطلاعات peer با پورت فرستنده
                     self.peers[ip] = {"port": sender_port, "online": True}
 
                 # ذخیره پیام دریافتی در تاریخچه
                 record_history(ip, "in", msg, entry_type="msg")
-                # نمایش پیام در UI (در thread اصلی)
-                #self.root.after(0, lambda ip=ip, msg=msg: self.display_incoming(ip, msg))
                 logger.info("Received message from %s", ip)
+
+                # --- نمایش پیام در UI در thread اصلی و رفرش لیست peers ---
+                try:
+                    # اگر اطلاعات پورت دریافت شده بود، لیست peers را در UI رفرش کن
+                    self.root.after(0, self.refresh_peers)
+                    # نمایش پیام ورودی در UI (display_incoming مدیریت ستاره/پنجره را انجام می‌دهد)
+                    self.root.after(0, lambda ip=ip, msg=msg: self.display_incoming(ip, msg))
+                except Exception:
+                    logger.exception("Failed to update UI after receiving msg")
 
             # ----------------- 4. پیام ناشناخته -----------------
             else:
@@ -678,8 +683,7 @@ class ChatApp:
     def ping_peer(self, ip, port):
         """
         ارسال پینگ {"ping":1} به همتا و انتظار برای پاسخ {"pong":1, "rtt_ms":...}.
-        - در صورت موفقیت زمان رفت و برگشت (RTT) اندازه‌گیری و ثبت می‌شود.
-        - در صورت باز بودن پنجره چت، نتیجه‌ی پینگ نمایش داده می‌شود.
+        پینگ/پونگ هرگز در UI چت نمایش داده نمی‌شوند؛ فقط به عنوان entry_type="ping" در تاریخچه ذخیره می‌شوند.
         """
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -698,14 +702,14 @@ class ChatApp:
             except Exception:
                 pass
 
-            # دریافت پاسخ پونگ
+            # دریافت پاسخ پونگ (یا خالی)
             data = b""
             try:
                 data = s.recv(8192)
             except Exception:
                 pass
 
-            # تلاش برای باز کردن بسته پونگ دریافتی
+            # بازکردن بسته پونگ دریافتی
             try:
                 obj = unpack_payload(data) if data else {}
             except Exception as e:
@@ -720,28 +724,24 @@ class ChatApp:
 
             # اگر پاسخ معتبر پونگ بود
             if isinstance(obj, dict) and obj.get("pong"):
-                # در صورت وجود rtt از مقصد، استفاده می‌شود، در غیر این صورت از elapsed_ms
                 rtt_val = obj.get("rtt_ms", elapsed_ms)
-
-                # ثبت در تاریخچه
                 rec_text = f"PING -> PONG ({rtt_val} ms)"
-                #record_history(ip, "out", rec_text, entry_type="ping")
-
-                # اگر پنجره چت باز است، پیام پینگ در آن نمایش داده می‌شود
-                self.root.after(
-                    0, lambda ip=ip, who="You", m=rec_text: self.append_to_chat_window(ip, who, m)
-                )
+                # فقط در تاریخچه ذخیره کن (type="ping") — هرگز در chat UI نمایش داده نشود
+                try:
+                    record_history(ip, "out", rec_text, entry_type="ping")
+                except Exception:
+                    logger.exception("Failed to record ping history for %s", ip)
 
                 logger.debug("Ping to %s success %d ms", ip, rtt_val)
                 return True
             else:
-                # اگر پونگ معتبر نبود
                 logger.debug("Ping to %s no valid pong response: %s", ip, obj)
                 return False
 
         except Exception:
             logger.exception("ping_peer failed for %s:%s", ip, port)
             return False
+
 
     # -------------------- History management UI functions --------------------
 

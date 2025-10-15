@@ -484,3 +484,121 @@ Traceback (most recent call last):
     s.connect((ip, port))
     ~~~~~~~~~^^^^^^^^^^^^
 TimeoutError: timed out
+2025-10-15 23:51:58,598 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-15 23:51:58,826 [INFO] Bound to saved port 10834
+2025-10-15 23:52:12,256 [ERROR] manual_connect failed
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 347, in manual_connect
+    ip, port = txt.split(":")
+    ^^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 1)
+2025-10-15 23:52:39,182 [INFO] User added peer 198.168.1.53:58516
+2025-10-15 23:52:41,965 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:52:49,997 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:52:50,658 [ERROR] send_message failed to 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 646, in send_message
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:52:50,673 [WARNING] Send to 198.168.1.53 failed
+2025-10-15 23:52:58,680 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:53:06,685 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:53:14,692 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:53:22,701 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:53:30,721 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:53:38,733 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:53:46,748 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:53:54,762 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:54:02,778 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:54:10,784 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:54:18,796 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:54:26,803 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:54:34,817 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:54:42,819 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-15 23:54:50,828 [ERROR] ping_peer failed for 198.168.1.53:58516
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 690, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
