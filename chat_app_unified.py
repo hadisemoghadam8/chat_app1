@@ -527,7 +527,7 @@ class ChatApp:
                 logger.debug("Received PING from %s", ip)
 
                 # نمایش پینگ دریافتی در UI (اگر چت باز باشد)
-                #self.root.after(0, lambda ip=ip: self.append_to_chat_window(ip, ip, "PING (received)"))
+                self.root.after(0, lambda ip=ip: self.append_to_chat_window(ip, ip, "PING (received)"))
 
                 # پاسخ با PONG برای تأیید دریافت
                 resp = {"pong": 1, "rtt_ms": 0}
