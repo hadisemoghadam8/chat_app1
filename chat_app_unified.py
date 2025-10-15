@@ -545,10 +545,21 @@ class ChatApp:
                         sender_port = int(obj["from_port"])
                     except Exception:
                         sender_port = obj.get("from_port")
-                    # ثبت یا بروزرسانی اطلاعات peer با پورت فرستنده
-                    self.peers[ip] = {"port": sender_port, "online": True}
 
-                # ذخیره پیام دریافتی در تاریخچه
+                # اگر این یک پیام تست داخلیه، آن را نادیده بگیر (ثبت و نمایش نکن)
+                if msg == "__TEST_REPLY__":
+                    logger.debug("Ignored internal TEST_REPLY from %s (from_port=%s)", ip, sender_port)
+                    # فقط اطلاعات پورت را بروز کن و UI را رفرش کن (تا امکان کلیک و باز کردن چت حفظ شود)
+                    if sender_port:
+                        self.peers[ip] = {"port": sender_port, "online": True}
+                    try:
+                        self.root.after(0, self.refresh_peers)
+                    except Exception:
+                        logger.exception("Failed to refresh peers after TEST_REPLY")
+                    # هیچ‌کدام از عملیات نمایش/record_history / spawn test-back اجرا نمی‌شود
+                    return
+
+                # --- پیام واقعی: ثبت در تاریخچه و نمایش ---
                 try:
                     record_history(ip, "in", msg, entry_type="msg")
                 except Exception:
@@ -556,26 +567,30 @@ class ChatApp:
 
                 logger.info("Received message from %s", ip)
 
-                # --- نمایش پیام در UI در thread اصلی و رفرش لیست peers ---
+                # رفرش لیست peers و نمایش پیام در UI
                 try:
-                    # رفرش لیست peers در UI
                     self.root.after(0, self.refresh_peers)
-                    # نمایش پیام ورودی در UI (display_incoming مدیریت ستاره/پنجره را انجام می‌دهد)
                     self.root.after(0, lambda ip=ip, msg=msg: self.display_incoming(ip, msg))
+                except Exception:
+                    logger.exception("Failed to update UI after receiving msg")
 
-                    # spawn a background test connection to verify we can connect back to sender
-                    if sender_port:
-                        try:
+                # --- spawn a background test connection to verify we can connect back (throttled) ---
+                if sender_port:
+                    try:
+                        now_ts = time.time()
+                        last = getattr(self, "_last_test_time", {})
+                        last_ts = last.get(ip, 0)
+                        # throttle: حداقل 2 ثانیه بین تست‌ها برای هر peer
+                        if now_ts - last_ts > 2:
+                            last[ip] = now_ts
+                            self._last_test_time = last
                             threading.Thread(
                                 target=self._try_connect_back_and_send_test,
                                 args=(ip, sender_port),
                                 daemon=True
                             ).start()
-                        except Exception:
-                            logger.exception("Failed to start test-reply thread for %s:%s", ip, sender_port)
-
-                except Exception:
-                    logger.exception("Failed to update UI after receiving msg")
+                    except Exception:
+                        logger.exception("Failed to start test-reply thread for %s:%s", ip, sender_port)
 
             # ----------------- 4. پیام ناشناخته -----------------
             else:
