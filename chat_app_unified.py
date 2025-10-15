@@ -743,7 +743,8 @@ class ChatApp:
             return False
 
 
-    # -------------------- History management UI functions --------------------
+
+    # ----------------- History management UI functions --------------------
 
     def prompt_keep_last_n(self):
         """

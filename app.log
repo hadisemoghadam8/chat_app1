@@ -602,3 +602,5 @@ Traceback (most recent call last):
     s.connect((ip, port))
     ~~~~~~~~~^^^^^^^^^^^^
 TimeoutError: timed out
+2025-10-16 00:16:55,817 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-16 00:16:55,877 [INFO] Bound to saved port 10834
