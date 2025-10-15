@@ -10,11 +10,17 @@ Features added:
 - Optional shared-key "encryption" (XOR + HMAC) for message payloads (NOT TLS; see warnings)
 - ping/pong protocol uses JSON responses: {"pong":1,"rtt_ms":123}
 """
+
+
 # ماژول‌های مورد نیاز برای عملکردهای مختلف برنامه
 import socket, threading, json, os, time, platform, logging, hashlib
 import tkinter as tk
 from tkinter import messagebox, simpledialog, scrolledtext
 from datetime import datetime, timedelta
+
+
+tk.Font = ("Arial", 11)
+
 
 # بررسی سیستم‌عامل؛ اگر ویندوز بود، ماژول winsound برای پخش صدای اعلان وارد می‌شود
 if platform.system() == "Windows":
@@ -275,45 +281,83 @@ class ChatApp:
 
     def ui_setup(self):
         """
-        ساخت رابط گرافیکی اصلی با Tkinter
-        شامل منوها، لیست کاربران و دکمه‌های اصلی
+        طراحی رابط کاربری اصلی (لیست کاربران) با ظاهر مدرن و رنگ آبی
         """
-        # ساخت منوی اصلی
-        menubar = tk.Menu(self.root)
+        self.root.configure(bg="#e7eefb")
 
-        # زیرمنوی مدیریت تاریخچه
-        histmenu = tk.Menu(menubar, tearoff=0)
-        histmenu.add_command(label="Keep last N messages (per peer)...", command=self.prompt_keep_last_n)
-        histmenu.add_command(label="Keep last X days (per peer)...", command=self.prompt_keep_last_days)
-        histmenu.add_separator()
-        histmenu.add_command(label="Clear all history", command=self.clear_history)
-        menubar.add_cascade(label="History", menu=histmenu)
+        # نوار عنوان بالا
+        title_bar = tk.Frame(self.root, bg="#5b9bd5", height=50)
+        title_bar.pack(fill="x")
 
-        # زیرمنوی تنظیمات
-        settmenu = tk.Menu(menubar, tearoff=0)
-        settmenu.add_command(label="Set shared key (enable/disable encryption)", command=self.prompt_set_shared_key)
-        menubar.add_cascade(label="Settings", menu=settmenu)
+        tk.Label(
+            title_bar,
+            text="💬  Manual LAN Chat",
+            bg="#5b9bd5",
+            fg="white",
+            font=("Segoe UI", 13, "bold")
+        ).pack(side="left", padx=15, pady=10)
 
-        self.root.config(menu=menubar)
+        # قاب اصلی
+        frame = tk.Frame(self.root, bg="#e7eefb")
+        frame.pack(padx=10, pady=10, fill="both", expand=True)
 
-        # قاب اصلی برای نمایش اطلاعات و لیست
-        frame = tk.Frame(self.root)
-        frame.pack(padx=10, pady=10)
+        # نمایش IP
+        tk.Label(
+            frame,
+            text=f"Your IP: {self.local_ip}:{self.listen_port}",
+            bg="#e7eefb",
+            fg="#333",
+            font=("Segoe UI", 11, "bold")
+        ).pack(pady=(0, 10))
 
-        # نمایش IP و پورت کاربر
-        tk.Label(frame, text=f"Your IP: {self.local_ip}:{self.listen_port}", font=("Arial", 10, "bold")).pack()
+        # لیست کاربران
+        list_frame = tk.Frame(frame, bg="#ffffff", bd=1, relief="solid")
+        list_frame.pack(fill="both", expand=True, padx=5, pady=5)
 
-        # لیست نمایش همتایان متصل (Peers)
-        self.listbox = tk.Listbox(frame, width=55, height=12)
-        self.listbox.pack(pady=5)
-        # باز کردن پنجره چت با دوبار کلیک
+        self.listbox = tk.Listbox(
+            list_frame,
+            width=55,
+            height=12,
+            font=("Segoe UI", 10),
+            bg="#ffffff",
+            fg="#000000",
+            highlightthickness=0,
+            relief="flat",
+            selectbackground="#cfe2ff"
+        )
+        self.listbox.pack(fill="both", expand=True, padx=5, pady=5)
         self.listbox.bind("<Double-Button-1>", self.open_chat_window)
 
-        # دکمه‌های پایین لیست
-        btn_frame = tk.Frame(frame)
-        btn_frame.pack()
-        tk.Button(btn_frame, text="Manual Connect", command=self.manual_connect).pack(side="left", padx=5)
-        tk.Button(btn_frame, text="Refresh", command=self.refresh_peers).pack(side="left", padx=5)
+        # دکمه‌ها
+        btn_frame = tk.Frame(frame, bg="#e7eefb")
+        btn_frame.pack(pady=10)
+
+        tk.Button(
+            btn_frame,
+            text="Manual Connect",
+            command=self.manual_connect,
+            bg="#5b9bd5",
+            fg="white",
+            font=("Segoe UI", 10, "bold"),
+            relief="flat",
+            padx=10,
+            pady=5,
+            width=15
+        ).pack(side="left", padx=10)
+
+        tk.Button(
+            btn_frame,
+            text="Refresh",
+            command=self.refresh_peers,
+            bg="#5b9bd5",
+            fg="white",
+            font=("Segoe UI", 10, "bold"),
+            relief="flat",
+            padx=10,
+            pady=5,
+            width=10
+        ).pack(side="left", padx=10)
+
 
     def refresh_peers(self):
         """
@@ -360,9 +404,8 @@ class ChatApp:
 
     def open_chat(self, ip):
         """
-        باز کردن پنجره گفت‌وگو با یک IP مشخص
+        باز کردن پنجره گفت‌وگو با طراحی جدید حبابی شبیه تلگرام
         """
-        # اگر پنجره چت قبلاً باز شده باشد فقط نوتیفیکیشن پیام جدید حذف می‌شود
         if ip in self.chat_windows:
             self.new_msg_peers.discard(ip)
             self.refresh_peers()
@@ -370,69 +413,95 @@ class ChatApp:
 
         port = self.peers[ip]["port"]
 
-        # ساخت پنجره جدید
+        # پنجره اصلی چت
         win = tk.Toplevel(self.root)
-        win.title(f"Chat with {ip}")
+        win.title(f"💬 Chat with {ip}")
+        win.configure(bg="#f0f2f7")
 
-        # جعبه نمایش پیام‌ها (غیرفعال برای ویرایش)
-        text = scrolledtext.ScrolledText(win, width=70, height=22, state='disabled')
-        text.pack(padx=5, pady=5)
+        # نوار بالای چت
+        header = tk.Frame(win, bg="#5b9bd5", height=50)
+        header.pack(fill="x")
+        tk.Label(header, text=f"Chat with {ip}", bg="#5b9bd5", fg="white",
+                 font=("Segoe UI", 12, "bold")).pack(side="left", padx=10, pady=10)
 
-        # نمایش تاریخچه چت قبلی با این کاربر
+        # بخش پیام‌ها
+        chat_frame = tk.Frame(win, bg="#e7eefb")
+        chat_frame.pack(fill="both", expand=True)
+
+        canvas = tk.Canvas(chat_frame, bg="#e7eefb", highlightthickness=0)
+        scrollbar = tk.Scrollbar(chat_frame, command=canvas.yview)
+        scroll_frame = tk.Frame(canvas, bg="#e7eefb")
+
+        scroll_frame.bind("<Configure>", lambda e: canvas.configure(scrollregion=canvas.bbox("all")))
+        canvas.create_window((0, 0), window=scroll_frame, anchor="nw")
+        canvas.configure(yscrollcommand=scrollbar.set)
+        canvas.pack(side="left", fill="both", expand=True)
+        scrollbar.pack(side="right", fill="y")
+
+        # تابع ساخت حباب پیام
+        def add_bubble(sender, msg, t=None):
+            frame = tk.Frame(scroll_frame, bg="#e7eefb")
+            anchor = "e" if sender == "me" else "w"
+            color = "#d0e7ff" if sender == "me" else "white"
+
+            bubble = tk.Label(
+                frame, text=msg, bg=color, fg="black",
+                font=("Segoe UI", 10), wraplength=320,
+                padx=10, pady=6, justify="left",
+                relief="ridge", bd=1
+            )
+            bubble.pack(anchor=anchor, padx=10, pady=3)
+
+            if t:
+                tk.Label(frame, text=t, bg="#e7eefb", fg="#777",
+                         font=("Segoe UI", 8)).pack(anchor=anchor)
+            frame.pack(fill="x", pady=3)
+
+            canvas.update_idletasks()
+            canvas.yview_moveto(1)
+
+        # نمایش تاریخچه قبلی
         with history_lock:
             for msg in history.get(ip, []):
-                # فقط پیام‌هایی که نوعشون "msg" هست نمایش داده می‌شن
                 if msg.get("type") != "msg":
                     continue
-                who = "You" if msg["dir"] == "out" else ip
-                text.config(state='normal')
-                text.insert('end', f"[{msg['time']}] {who}: {msg['msg']}\n")
-                text.config(state='disabled')
+                sender = "me" if msg["dir"] == "out" else "you"
+                add_bubble(sender, msg["msg"], msg["time"])
 
+        # نوار پایین
+        bottom = tk.Frame(win, bg="#f0f2f7")
+        bottom.pack(fill="x", padx=10, pady=8)
 
-        # فیلد وارد کردن پیام
-        entry = tk.Entry(win, width=55)
-        entry.pack(side='left', padx=5, pady=5, fill='x', expand=True)
+        entry = tk.Entry(bottom, font=("Segoe UI", 10), width=55, relief="flat", bd=2)
+        entry.pack(side="left", fill="x", expand=True, padx=(0, 10))
 
-        # تابع ارسال پیام
         def send_msg():
             msg = entry.get().strip()
             if not msg:
                 return
             entry.delete(0, tk.END)
             ok = self.send_message(ip, port, msg)
-            text.config(state='normal')
             if ok:
-                # درج پیام در چت
-                text.insert('end', f"[{now()}] You: {msg}\n")
+                add_bubble("me", msg, now())
                 record_history(ip, "out", msg, entry_type="msg")
-                logger.info("Sent message to %s", ip)
             else:
-                text.insert('end', "[system] Send failed.\n")
-                logger.warning("Send to %s failed", ip)
-            text.config(state='disabled')
-            text.see('end')
+                add_bubble("system", "[Send failed]")
 
-        # دکمه ارسال
-        tk.Button(win, text="Send", command=send_msg).pack(side='right', padx=5, pady=5)
+        send_btn = tk.Button(bottom, text="✈️", bg="#5b9bd5", fg="white",
+                             font=("Segoe UI", 11, "bold"), relief="flat",
+                             width=4, command=send_msg)
+        send_btn.pack(side="right")
 
-        # ذخیره پنجره چت در دیکشنری
-        self.chat_windows[ip] = (win, text)
-        # تابعی که وقتی کاربر پنجره چت را می‌بندد اجرا می‌شود
+        self.chat_windows[ip] = (win, scroll_frame)
+
         def on_close():
-            # حذف پنجره چت از دیکشنری پنجره‌های باز
             if ip in self.chat_windows:
                 del self.chat_windows[ip]
-            # حذف آیکون پیام جدید برای این IP (اگر وجود داشت)
             self.new_msg_peers.discard(ip)
-            # به‌روزرسانی لیست کاربران
             self.refresh_peers()
-            # بستن خود پنجره
             win.destroy()
 
-        # ثبت تابع on_close به عنوان handler برای رویداد بستن پنجره (علامت ×)
         win.protocol("WM_DELETE_WINDOW", on_close)
-
 
     # ----------------- راه‌اندازی Listener (برای دریافت پیام‌های ورودی) -----------------
     def start_listener(self):
@@ -568,7 +637,7 @@ class ChatApp:
                 logger.info("Received message from %s", ip)
                 if sender_port:
                     self.peers[ip] = {"port": sender_port, "online": True}
-                    logger.debug("Updated peer %s port to %s", ip, sender_port)
+                    logger.debug("Updated peer %s port to %s", ip, sender_port)        #این باعث میشه وقتی طرف مقابل پیامی فرستاد، پورت شنودش ذخیره بشه و از اون به بعد نفر دوم هم بتونه جواب بده
 
                 # رفرش لیست peers و نمایش پیام در UI
                 try:
@@ -614,7 +683,34 @@ class ChatApp:
         if not win:
             return
         text.config(state='normal')
-        text.insert('end', f"[{now()}] {ip}: {msg}\n")
+        win, chat_area = self.chat_windows.get(ip, (None, None))
+        if not win or not chat_area:
+            self.new_msg_peers.add(ip)
+            self.refresh_peers()
+            self.play_notify_sound()
+            return
+
+        # ساخت حباب پیام دریافتی
+        bubble = tk.Label(
+            chat_area,
+            text=msg,
+            bg="#f1f1f1",
+            fg="black",
+            font=("Arial", 11),
+            wraplength=280,
+            justify="left",
+            padx=8,
+            pady=5
+        )
+        frame = tk.Frame(chat_area, bg="white")
+        frame.pack(anchor="w", pady=3, padx=10, fill="x")
+        bubble.pack(anchor="w", padx=5)
+        tk.Label(frame, text=now(), bg="white", fg="#888", font=("Arial", 8)).pack(anchor="w", padx=5)
+
+        # رنگ‌بندی ساده برای پیام‌های ورودی
+        text.tag_config("incoming", background="#f1f1f1", foreground="black")
+        text.insert('end', f"[{now()}] {ip}: {msg}\n", "incoming")
+
         text.config(state='disabled')
         text.see('end')
 
