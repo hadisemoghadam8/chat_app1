@@ -495,6 +495,7 @@ class ChatApp:
         """
         این تابع یک اتصال ورودی را مدیریت می‌کند.
         پیام را از کلاینت می‌خواند، رمزگشایی می‌کند و نوع پیام را تشخیص می‌دهد.
+        (Rewritten: no test-reply spawn, ignore internal test messages.)
         """
         ip = addr[0]
         try:
@@ -512,31 +513,30 @@ class ChatApp:
                 conn.close()
                 return
 
-            # ----------------- 1. اگر پیام از نوع PING بود -----------------
+            # ----------------- 1. PING -----------------
             if isinstance(obj, dict) and "ping" in obj:
-                # دریافت پینگ — فقط در تاریخچه ثبت می‌شود، هرگز در UI چت نمایش داده نشود
                 logger.debug("Received PING from %s", ip)
                 try:
+                    # فقط به صورت type="ping" ثبت کن (UI نمایش نمی‌دهد)
                     record_history(ip, "in", "PING (received)", entry_type="ping")
                 except Exception:
                     logger.exception("Failed to record incoming ping")
-                # پاسخ با یک PONG (ارسال تنها یک بار)
+                # ارسال یک PONG واحد
                 resp = {"pong": 1, "rtt_ms": 0}
                 try:
                     conn.send(pack_payload(resp))
                 except Exception:
                     logger.exception("Failed to send pong to %s", ip)
 
-            # ----------------- 2. اگر پیام از نوع PONG بود -----------------
+            # ----------------- 2. PONG -----------------
             elif isinstance(obj, dict) and "pong" in obj:
-                # معمولاً کمتر اتفاق می‌افتد (زمانی که PONG مستقیماً ارسال شود)
                 logger.debug("Received unsolicited PONG from %s: %s", ip, obj)
                 try:
                     record_history(ip, "in", f"PONG (info: {obj.get('rtt_ms',0)} ms)", entry_type="ping")
                 except Exception:
                     logger.exception("Failed to record incoming pong")
 
-            # ----------------- 3. اگر پیام چت واقعی بود -----------------
+            # ----------------- 3. MSG -----------------
             elif isinstance(obj, dict) and "msg" in obj:
                 msg = obj["msg"]
                 sender_port = None
@@ -546,20 +546,20 @@ class ChatApp:
                     except Exception:
                         sender_port = obj.get("from_port")
 
-                # اگر این یک پیام تست داخلیه، آن را نادیده بگیر (ثبت و نمایش نکن)
+                # اگر پیام داخلی تست است، آن را کاملاً نادیده بگیر (ثبت/نمایش نکن)
                 if msg == "__TEST_REPLY__":
                     logger.debug("Ignored internal TEST_REPLY from %s (from_port=%s)", ip, sender_port)
-                    # فقط اطلاعات پورت را بروز کن و UI را رفرش کن (تا امکان کلیک و باز کردن چت حفظ شود)
+                    # ولی به‌روزرسانی اطلاعات peer (تا لیست قابل کلیک باقی بماند)
                     if sender_port:
                         self.peers[ip] = {"port": sender_port, "online": True}
                     try:
                         self.root.after(0, self.refresh_peers)
                     except Exception:
                         logger.exception("Failed to refresh peers after TEST_REPLY")
-                    # هیچ‌کدام از عملیات نمایش/record_history / spawn test-back اجرا نمی‌شود
+                    # پایان پردازش برای این اتصال
                     return
 
-                # --- پیام واقعی: ثبت در تاریخچه و نمایش ---
+                # پیام واقعی: ذخیره و نمایش
                 try:
                     record_history(ip, "in", msg, entry_type="msg")
                 except Exception:
@@ -574,25 +574,7 @@ class ChatApp:
                 except Exception:
                     logger.exception("Failed to update UI after receiving msg")
 
-                # --- spawn a background test connection to verify we can connect back (throttled) ---
-                if sender_port:
-                    try:
-                        now_ts = time.time()
-                        last = getattr(self, "_last_test_time", {})
-                        last_ts = last.get(ip, 0)
-                        # throttle: حداقل 2 ثانیه بین تست‌ها برای هر peer
-                        if now_ts - last_ts > 2:
-                            last[ip] = now_ts
-                            self._last_test_time = last
-                            threading.Thread(
-                                target=self._try_connect_back_and_send_test,
-                                args=(ip, sender_port),
-                                daemon=True
-                            ).start()
-                    except Exception:
-                        logger.exception("Failed to start test-reply thread for %s:%s", ip, sender_port)
-
-            # ----------------- 4. پیام ناشناخته -----------------
+            # ----------------- 4. Unknown -----------------
             else:
                 logger.warning("Unknown object from %s: %s", ip, obj)
 
@@ -603,7 +585,6 @@ class ChatApp:
                 conn.close()
             except Exception:
                 pass
-
 
 
     def display_incoming(self, ip, msg):
@@ -689,30 +670,32 @@ class ChatApp:
 
     def send_message(self, ip, port, msg):
         """
-        این تابع پیام کاربر را به یک همتای مشخص ارسال می‌کند.
-        - ip: آدرس IP مقصد
-        - port: پورت مقصد
-        - msg: متن پیام ارسالی
+        ارسال پیام به یک همتا؛ لاگ مفصل برای دیباگ.
         """
         try:
-            # ساخت سوکت TCP
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.settimeout(4)  # حداکثر زمان برای برقراری ارتباط
-            logger.debug("send_message -> attempting connect to %s:%s (from local listen port %s)", ip, port, self.listen_port)
+            try:
+                port = int(port)
+            except Exception:
+                logger.warning("send_message: port is not int for %s: %r", ip, port)
 
-            # اتصال به همتا
+            logger.debug("send_message -> attempting connect to %s:%s (from listen port %s) msg=%s", ip, port, self.listen_port, msg if len(msg)<100 else msg[:100]+"...")
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            s.settimeout(4)  # timeout for connect/send
             s.connect((ip, port))
 
-            # بسته‌بندی پیام در قالب دیکشنری JSON
             payload = {"msg": msg, "from_port": self.listen_port}
-            s.send(pack_payload(payload))# ارسال پیام رمزگذاری/فشرده شده (در صورت تعریف pack_payload)
-
+            s.send(pack_payload(payload))
+            # give remote a moment (optional) then close
+            try:
+                s.shutdown(socket.SHUT_WR)
+            except Exception:
+                pass
             s.close()
-            return True  # ارسال موفق
+            logger.debug("send_message -> sent to %s:%s", ip, port)
+            return True
         except Exception:
             logger.exception("send_message failed to %s:%s", ip, port)
-            return False  # ارسال ناموفق
-
+            return False
 
     def check_peers_online(self):
         """
