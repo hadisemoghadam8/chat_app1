@@ -522,6 +522,8 @@ class ChatApp:
         send_btn.pack(side="right")
 
         self.chat_windows[ip] = (win, scroll_frame)
+        win.chat_area = scroll_frame
+
 
         def on_close():
             if ip in self.chat_windows:
@@ -691,7 +693,6 @@ class ChatApp:
             except Exception:
                 pass
 
-
     def display_incoming(self, ip, msg):
         """
         این تابع پیام‌های ورودی را در رابط کاربری نشان می‌دهد.
@@ -706,16 +707,13 @@ class ChatApp:
             self.new_msg_peers.add(ip)
             self.refresh_peers()
             self.play_notify_sound()
-        else:
-            # اگر پنجره باز است → ستاره پیام جدید حذف می‌شود
-            self.new_msg_peers.discard(ip)
-            self.refresh_peers()
+            return  # چون پنجره باز نیست
 
-        # اگر پنجره چت باز است، پیام را مستقیماً در پنجره نمایش می‌دهد
-        win, text = self.chat_windows.get(ip, (None, None))
-        if not win:
-            return
-        text.config(state='normal')
+        # اگر پنجره باز است → ستاره پیام جدید حذف می‌شود
+        self.new_msg_peers.discard(ip)
+        self.refresh_peers()
+
+        # گرفتن پنجره و ناحیه‌ی چت مربوط به IP
         win, chat_area = self.chat_windows.get(ip, (None, None))
         if not win or not chat_area:
             self.new_msg_peers.add(ip)
@@ -723,29 +721,40 @@ class ChatApp:
             self.play_notify_sound()
             return
 
-        # ساخت حباب پیام دریافتی
+        # ساخت حباب پیام دریافتی در سمت چپ (مثل تلگرام)
+        frame = tk.Frame(chat_area, bg="#e7eefb")
+        frame.pack(fill="x", pady=3, anchor="w")
+
         bubble = tk.Label(
-            chat_area,
+            frame,
             text=msg,
-            bg="#f1f1f1",
+            bg="white",
             fg="black",
-            font=("Arial", 11),
-            wraplength=280,
+            font=("Segoe UI", 10),
+            wraplength=320,
             justify="left",
-            padx=8,
-            pady=5
+            padx=10,
+            pady=6,
+            relief="ridge",
+            bd=1
         )
-        frame = tk.Frame(chat_area, bg="white")
-        frame.pack(anchor="w", pady=3, padx=10, fill="x")
-        bubble.pack(anchor="w", padx=5)
-        tk.Label(frame, text=now(), bg="white", fg="#888", font=("Arial", 8)).pack(anchor="w", padx=5)
+        bubble.pack(anchor="w", padx=10, pady=2)
 
-        # رنگ‌بندی ساده برای پیام‌های ورودی
-        text.tag_config("incoming", background="#f1f1f1", foreground="black")
-        text.insert('end', f"[{now()}] {ip}: {msg}\n", "incoming")
+        tk.Label(
+            frame,
+            text=now(),
+            bg="#e7eefb",
+            fg="#777",
+            font=("Segoe UI", 8)
+        ).pack(anchor="w", padx=15)
 
-        text.config(state='disabled')
-        text.see('end')
+        # اسکرول خودکار به پایین
+        chat_area.update_idletasks()
+        chat_area.master.yview_moveto(1)
+
+        # پخش صدای اعلان (اختیاری)
+        self.play_notify_sound()
+
 
     def append_to_chat_window(self, ip, who, msg_text):
         """
@@ -769,23 +778,23 @@ class ChatApp:
         # اسکرول خودکار به آخرین پیام
         win_text.see('end')
 
-#فقط برای دیباگ. بعدش حذف کن ؟؟؟؟؟؟؟؟؟؟!!!!!!!!!!!
-    def _try_connect_back_and_send_test(self, ip, port):
-        """
-        Debug helper: attempt to connect back to (ip,port) and send a tiny test message.
-        This will produce logs showing success/failure and helps diagnose one-way issues.
-        """
-        try:
-            logger.debug("Test-Reply: attempting to connect back to %s:%s", ip, port)
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.settimeout(3)
-            s.connect((ip, port))
-            payload = {"msg": "__TEST_REPLY__", "from_port": self.listen_port}
-            s.send(pack_payload(payload))
-            s.close()
-            logger.info("Test-Reply: success connecting back to %s:%s", ip, port)
-        except Exception:
-            logger.exception("Test-Reply: failed to connect back to %s:%s", ip, port)
+# #فقط برای دیباگ. بعدش حذف کن ؟؟؟؟؟؟؟؟؟؟!!!!!!!!!!!
+#     def _try_connect_back_and_send_test(self, ip, port):
+#         """
+#         Debug helper: attempt to connect back to (ip,port) and send a tiny test message.
+#         This will produce logs showing success/failure and helps diagnose one-way issues.
+#         """
+#         try:
+#             logger.debug("Test-Reply: attempting to connect back to %s:%s", ip, port)
+#             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+#             s.settimeout(3)
+#             s.connect((ip, port))
+#             payload = {"msg": "__TEST_REPLY__", "from_port": self.listen_port}
+#             s.send(pack_payload(payload))
+#             s.close()
+#             logger.info("Test-Reply: success connecting back to %s:%s", ip, port)
+#         except Exception:
+#             logger.exception("Test-Reply: failed to connect back to %s:%s", ip, port)
 
 
 

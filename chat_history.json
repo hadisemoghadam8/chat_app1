@@ -677,6 +677,708 @@
       "dir": "in",
       "msg": "PING (received)",
       "type": "ping"
+    },
+    {
+      "time": "2025-10-18 00:59:47",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 00:59:52",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 00:59:54",
+      "dir": "out",
+      "msg": "jiji",
+      "type": "msg"
+    },
+    {
+      "time": "2025-10-18 00:59:57",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 00:59:58",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:02",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:03",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:06",
+      "dir": "in",
+      "msg": "vhvh",
+      "type": "msg"
+    },
+    {
+      "time": "2025-10-18 01:00:07",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:08",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:12",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:13",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:17",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:19",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:22",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:24",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:27",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:28",
+      "dir": "out",
+      "msg": "oolo",
+      "type": "msg"
+    },
+    {
+      "time": "2025-10-18 01:00:30",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:33",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:38",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:43",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:44",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:46",
+      "dir": "out",
+      "msg": "1234",
+      "type": "msg"
+    },
+    {
+      "time": "2025-10-18 01:00:48",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:50",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:55",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:00:55",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:18",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:23",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:27",
+      "dir": "out",
+      "msg": "555",
+      "type": "msg"
+    },
+    {
+      "time": "2025-10-18 01:09:29",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:31",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:34",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:36",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:39",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:41",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:41",
+      "dir": "out",
+      "msg": "hi",
+      "type": "msg"
+    },
+    {
+      "time": "2025-10-18 01:09:44",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:46",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:49",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:51",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:54",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:55",
+      "dir": "in",
+      "msg": "hi2",
+      "type": "msg"
+    },
+    {
+      "time": "2025-10-18 01:09:56",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:09:59",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:01",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:06",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:06",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:11",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:11",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:16",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:16",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:21",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:21",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:26",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:26",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:31",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:31",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:36",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:36",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:41",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:41",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:46",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:46",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:52",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:52",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:58",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:10:59",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:06",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:06",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:11",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:11",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:16",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:16",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:21",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:21",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:26",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:26",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:31",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:31",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:36",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:36",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:41",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:41",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:46",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:46",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:51",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:52",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:58",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:11:58",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:04",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:04",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:09",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:09",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:15",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:15",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:20",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:24",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:26",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:29",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:31",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:34",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:37",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:40",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:46",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:46",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:51",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:51",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:56",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:12:56",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:13:01",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:13:01",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:13:06",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:13:06",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:13:11",
+      "dir": "in",
+      "msg": "PING (received)",
+      "type": "ping"
+    },
+    {
+      "time": "2025-10-18 01:13:11",
+      "dir": "out",
+      "msg": "PING -> PONG (0 ms)",
+      "type": "ping"
     }
   ]
 }
