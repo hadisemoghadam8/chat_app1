@@ -30,7 +30,9 @@ if platform.system() == "Windows":
 # نام فایل‌هایی که برای ذخیره داده‌ها استفاده می‌شوند
 HISTORY_FILE = "chat_history.json"    # فایل ذخیره تاریخچه پیام‌ها
 PORT_FILE = f"listen_port_{socket.gethostname()}.txt"       # فایل ذخیره پورت شنود
-LOG_FILE = "app.log"                  # فایل لاگ برنامه
+LOG_FILE = "app.log"   
+PEERS_FILE = "peers.json"
+
 
 # حداکثر تعداد رکوردهای پینگ ذخیره‌شده برای هر کاربر
 MAX_PING_RECORDS_PER_PEER = 300
@@ -77,6 +79,27 @@ def load_history():
         except Exception as e:
             logger.exception("Failed to load history file")
     return {}  # اگر فایل نبود یا خطا داد، تاریخچه خالی برمی‌گرداند
+
+def load_peers():
+    """بارگذاری لیست آی‌پی‌ها از فایل peers.json"""
+    if os.path.exists(PEERS_FILE):
+        try:
+            with open(PEERS_FILE, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            logger.exception("Failed to load peers file")
+    return {}
+
+def save_peers(peers):
+    """ذخیره‌ی لیست آی‌پی‌ها در فایل peers.json"""
+    try:
+        with open(PEERS_FILE, "w", encoding="utf-8") as f:
+            json.dump(peers, f, ensure_ascii=False, indent=2)
+    except Exception:
+        logger.exception("Failed to save peers file")
+
+
+
 
 # تابع برای ذخیره تاریخچه در فایل JSON
 def save_history(hist):
@@ -267,7 +290,8 @@ class ChatApp:
         self.listen_port = self.start_listener()
 
         # نگهداری لیست همتایان (peers) و پنجره‌های چت باز شده
-        self.peers = {}
+        self.peers = load_peers()
+
         self.chat_windows = {}
 
         # نگهداری IP هایی که پیام جدید دارند (برای ستاره‌دار کردن در لیست)
@@ -275,6 +299,11 @@ class ChatApp:
 
         # راه‌اندازی رابط کاربری
         self.ui_setup()
+        self.refresh_peers()
+
+        save_peers(self.peers)
+
+
 
         # راه‌اندازی یک thread برای بررسی آنلاین بودن همتایان
         threading.Thread(target=self.check_peers_online, daemon=True).start()
@@ -621,6 +650,8 @@ class ChatApp:
                     # ولی به‌روزرسانی اطلاعات peer (تا لیست قابل کلیک باقی بماند)
                     if sender_port:
                         self.peers[ip] = {"port": sender_port, "online": True}
+                        save_peers(self.peers)
+
                     try:
                         self.root.after(0, self.refresh_peers)
                     except Exception:
@@ -638,7 +669,9 @@ class ChatApp:
                 if sender_port:
                     self.peers[ip] = {"port": sender_port, "online": True}
                     logger.debug("Updated peer %s port to %s", ip, sender_port)        #این باعث میشه وقتی طرف مقابل پیامی فرستاد، پورت شنودش ذخیره بشه و از اون به بعد نفر دوم هم بتونه جواب بده
+                    save_peers(self.peers)
 
+                    
                 # رفرش لیست peers و نمایش پیام در UI
                 try:
                     self.root.after(0, self.refresh_peers)
