@@ -778,25 +778,6 @@ class ChatApp:
         # اسکرول خودکار به آخرین پیام
         win_text.see('end')
 
-# #فقط برای دیباگ. بعدش حذف کن ؟؟؟؟؟؟؟؟؟؟!!!!!!!!!!!
-#     def _try_connect_back_and_send_test(self, ip, port):
-#         """
-#         Debug helper: attempt to connect back to (ip,port) and send a tiny test message.
-#         This will produce logs showing success/failure and helps diagnose one-way issues.
-#         """
-#         try:
-#             logger.debug("Test-Reply: attempting to connect back to %s:%s", ip, port)
-#             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#             s.settimeout(3)
-#             s.connect((ip, port))
-#             payload = {"msg": "__TEST_REPLY__", "from_port": self.listen_port}
-#             s.send(pack_payload(payload))
-#             s.close()
-#             logger.info("Test-Reply: success connecting back to %s:%s", ip, port)
-#         except Exception:
-#             logger.exception("Test-Reply: failed to connect back to %s:%s", ip, port)
-
-
 
     def play_notify_sound(self):
         """
