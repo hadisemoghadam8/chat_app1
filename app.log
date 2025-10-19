@@ -1,15 +1,12 @@
-2025-10-19 23:29:27,551 [INFO] Starting p2p chat app. SHARED_KEY set: no
-2025-10-19 23:29:27,589 [INFO] Selected new random port 7681 and saved to listen_port_DESKTOP-OBIM9JD.txt
-2025-10-19 23:29:27,589 [INFO] Listening on port 7681
-2025-10-19 23:29:56,623 [INFO] User added peer 192.168.1.53:63498
-2025-10-19 23:30:02,724 [DEBUG] send_message -> attempting connect to 192.168.1.53:63498 (from listen port 7681) msg=//
-2025-10-19 23:30:02,737 [DEBUG] send_message -> sent to 192.168.1.53:63498
-2025-10-19 23:30:35,303 [WARNING] ping_peer failed for 192.168.1.53:63498 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:30:58,645 [INFO] Starting p2p chat app. SHARED_KEY set: no
-2025-10-19 23:30:58,718 [INFO] Read saved port: 7681
-2025-10-19 23:30:58,718 [INFO] Successfully bound to saved port 7681
-2025-10-19 23:30:58,718 [INFO] Listening on port 7681
-2025-10-19 23:38:36,863 [INFO] Starting p2p chat app. SHARED_KEY set: no
-2025-10-19 23:38:36,909 [INFO] Read saved port: 7681
-2025-10-19 23:38:36,910 [INFO] Successfully bound to saved port 7681
-2025-10-19 23:38:36,910 [INFO] Listening on port 7681
+2025-10-19 23:40:14,281 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 23:40:14,324 [INFO] Selected new random port 13732 and saved to listen_port_DESKTOP-OBIM9JD.txt
+2025-10-19 23:40:14,325 [INFO] Listening on port 13732
+2025-10-19 23:40:24,640 [DEBUG] handle_conn from 192.168.1.54 (source_port=13739): {'ping': 1}
+2025-10-19 23:40:29,662 [DEBUG] handle_conn from 192.168.1.54 (source_port=13743): {'ping': 1}
+2025-10-19 23:40:36,709 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
+2025-10-19 23:40:43,756 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
+2025-10-19 23:40:50,834 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
+2025-10-19 23:40:57,896 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
+2025-10-19 23:41:04,959 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
+2025-10-19 23:41:12,006 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
+2025-10-19 23:41:19,080 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
