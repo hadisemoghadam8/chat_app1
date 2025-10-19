@@ -1,54 +1,25 @@
-2025-10-19 23:40:14,281 [INFO] Starting p2p chat app. SHARED_KEY set: no
-2025-10-19 23:40:14,324 [INFO] Selected new random port 13732 and saved to listen_port_DESKTOP-OBIM9JD.txt
-2025-10-19 23:40:14,325 [INFO] Listening on port 13732
-2025-10-19 23:40:24,640 [DEBUG] handle_conn from 192.168.1.54 (source_port=13739): {'ping': 1}
-2025-10-19 23:40:29,662 [DEBUG] handle_conn from 192.168.1.54 (source_port=13743): {'ping': 1}
-2025-10-19 23:40:36,709 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:40:43,756 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:40:50,834 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:40:57,896 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:41:04,959 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:41:12,006 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:41:19,080 [WARNING] ping_peer failed for 192.168.1.54:13743 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:41:52,482 [INFO] Starting p2p chat app. SHARED_KEY set: no
-2025-10-19 23:41:52,527 [INFO] Read saved port: 13732
-2025-10-19 23:41:52,527 [INFO] Successfully bound to saved port 13732
-2025-10-19 23:41:52,527 [INFO] Listening on port 13732
-2025-10-19 23:42:08,654 [ERROR] manual_connect failed
-Traceback (most recent call last):
-  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 600, in manual_connect
-    ip, port = txt.split(":")
-    ^^^^^^^^
-ValueError: not enough values to unpack (expected 2, got 1)
-2025-10-19 23:42:29,603 [INFO] User added peer 192.168.1.53:63724
-2025-10-19 23:42:35,977 [DEBUG] send_message -> connecting to 192.168.1.53:63724 (from listen port 13732), msg=knknk
-2025-10-19 23:42:35,991 [DEBUG] send_message -> sent successfully to 192.168.1.53:63724
-2025-10-19 23:42:36,708 [DEBUG] handle_conn from 192.168.1.53 (source_port=63747): {'ping': 1}
-2025-10-19 23:42:39,928 [WARNING] ping_peer failed for 192.168.1.53:63747 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:42:43,782 [DEBUG] handle_conn from 192.168.1.53 (source_port=63749): {'ping': 1}
-2025-10-19 23:42:47,022 [WARNING] ping_peer failed for 192.168.1.53:63749 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:42:48,809 [DEBUG] handle_conn from 192.168.1.53 (source_port=63751): {'ping': 1}
-2025-10-19 23:42:49,450 [DEBUG] handle_conn from 192.168.1.53 (source_port=63752): {'msg': 'v', 'from_port': 63724, 'name': 'vfh'}
-2025-10-19 23:42:49,453 [INFO] Received message from 192.168.1.53
-2025-10-19 23:43:04,224 [WARNING] ping_peer failed for 192.168.1.53:63724 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:43:11,315 [WARNING] ping_peer failed for 192.168.1.53:63724 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:43:18,400 [WARNING] ping_peer failed for 192.168.1.53:63724 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:43:25,475 [WARNING] ping_peer failed for 192.168.1.53:63724 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:43:32,558 [WARNING] ping_peer failed for 192.168.1.53:63724 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:43:39,663 [WARNING] ping_peer failed for 192.168.1.53:63724 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:43:46,756 [WARNING] ping_peer failed for 192.168.1.53:63724 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:43:53,849 [WARNING] ping_peer failed for 192.168.1.53:63724 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:47:58,165 [INFO] Starting p2p chat app. SHARED_KEY set: no
-2025-10-19 23:47:58,204 [INFO] Read saved port: 13732
-2025-10-19 23:47:58,204 [INFO] Successfully bound to saved port 13732
-2025-10-19 23:47:58,205 [INFO] Listening on port 13732
-2025-10-19 23:48:06,726 [DEBUG] send_message -> connecting to 192.168.1.53:63724 (from listen port 13732), msg=يط
-2025-10-19 23:48:08,880 [ERROR] send_message failed to 192.168.1.53:63724 ([WinError 10061] No connection could be made because the target machine actively refused it)
-Traceback (most recent call last):
-  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 1104, in send_message
-    s.connect((ip, port))
-    ~~~~~~~~~^^^^^^^^^^^^
-ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
-2025-10-19 23:48:21,646 [DEBUG] send_message -> connecting to 192.168.1.53:63724 (from listen port 13732), msg=55
-2025-10-19 23:48:21,663 [DEBUG] send_message -> sent successfully to 192.168.1.53:63724
-2025-10-19 23:48:25,571 [DEBUG] handle_conn from 192.168.1.53 (source_port=63803): {'ping': 1}
+2025-10-19 23:52:15,811 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 23:52:15,855 [INFO] Selected new random port 13957 and saved to listen_port_DESKTOP-OBIM9JD.txt
+2025-10-19 23:52:15,855 [INFO] Listening on port 13957
+2025-10-19 23:52:21,153 [DEBUG] handle_conn from 192.168.1.54 (source_port=13958): {'ping': 1}
+2025-10-19 23:52:26,172 [DEBUG] handle_conn from 192.168.1.54 (source_port=13959): {'ping': 1}
+2025-10-19 23:52:31,195 [DEBUG] handle_conn from 192.168.1.54 (source_port=13960): {'ping': 1}
+2025-10-19 23:52:36,226 [DEBUG] handle_conn from 192.168.1.54 (source_port=13962): {'ping': 1}
+2025-10-19 23:52:41,246 [DEBUG] handle_conn from 192.168.1.54 (source_port=13964): {'ping': 1}
+2025-10-19 23:52:43,576 [INFO] User added peer 192.168.1.53:63853
+2025-10-19 23:52:46,267 [DEBUG] handle_conn from 192.168.1.54 (source_port=13967): {'ping': 1}
+2025-10-19 23:52:50,243 [DEBUG] send_message -> connecting to 192.168.1.53:63853 (from listen port 13957), msg=x,x,x
+2025-10-19 23:52:50,271 [DEBUG] send_message -> sent successfully to 192.168.1.53:63853
+2025-10-19 23:52:51,316 [DEBUG] handle_conn from 192.168.1.54 (source_port=13970): {'ping': 1}
+2025-10-19 23:52:56,355 [DEBUG] handle_conn from 192.168.1.54 (source_port=13972): {'ping': 1}
+2025-10-19 23:53:01,402 [DEBUG] handle_conn from 192.168.1.54 (source_port=13974): {'ping': 1}
+2025-10-19 23:53:06,455 [DEBUG] handle_conn from 192.168.1.54 (source_port=13977): {'ping': 1}
+2025-10-19 23:53:11,491 [DEBUG] handle_conn from 192.168.1.54 (source_port=13979): {'ping': 1}
+2025-10-19 23:53:16,572 [DEBUG] handle_conn from 192.168.1.54 (source_port=13981): {'ping': 1}
+2025-10-19 23:53:21,607 [DEBUG] handle_conn from 192.168.1.54 (source_port=13983): {'ping': 1}
+2025-10-19 23:54:22,984 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 23:54:23,034 [INFO] Read saved port: 13957
+2025-10-19 23:54:23,034 [INFO] Successfully bound to saved port 13957
+2025-10-19 23:54:23,035 [INFO] Listening on port 13957
+2025-10-19 23:54:29,870 [DEBUG] send_message -> connecting to 192.168.1.53:63853 (from listen port 13957), msg=cc
+2025-10-19 23:54:29,896 [DEBUG] send_message -> sent successfully to 192.168.1.53:63853

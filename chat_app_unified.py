@@ -886,12 +886,8 @@ class ChatApp:
                     peer_name = obj.get("name")
                     if peer_name:
                         p = self.peers.setdefault(ip, {})
-
-                        # فقط اگر پورت هنوز ذخیره نشده، از پورت فعلی استفاده کن
                         if "port" not in p or not p.get("port"):
                             p["port"] = addr[1]
-
-                        # در غیر این صورت، مقدار فعلی پورت را نگه دار (تغییر نده)
                         p["name"] = peer_name
                         p["online"] = True
                         p["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -909,9 +905,7 @@ class ChatApp:
                 try:
                     conn.send(pack_payload(resp))
                     p = self.peers.setdefault(ip, {})
-                    # دیگر پورت را از addr[1] نگیریم (چون موقتی است)
-                    if "port" not in p or not p.get("port"):
-                        p["port"] = addr[1]
+                    p["port"] = addr[1]
                     p["online"] = True
                     p["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     save_peers(self.peers)
@@ -921,9 +915,7 @@ class ChatApp:
             # --- 2. PONG ---
             elif isinstance(obj, dict) and "pong" in obj:
                 p = self.peers.setdefault(ip, {})
-                # پورت را فقط در صورت نداشتن مقدار ثبت کن
-                if "port" not in p or not p.get("port"):
-                    p["port"] = addr[1]
+                p["port"] = addr[1]
                 p["online"] = True
                 p["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 save_peers(self.peers)
@@ -943,9 +935,7 @@ class ChatApp:
                 if msg == "__TEST_REPLY__":
                     if sender_port:
                         p = self.peers.setdefault(ip, {})
-                        # فقط اگر پورت ثبت نشده، مقدار جدید بده
-                        if "port" not in p or not p.get("port"):
-                            p["port"] = sender_port
+                        p["port"] = sender_port
                         p["online"] = True
                         save_peers(self.peers)
                     try:
@@ -964,9 +954,7 @@ class ChatApp:
 
                 if sender_port:
                     p = self.peers.setdefault(ip, {})
-                    # فقط اگر پورت قبلاً تنظیم نشده بود، مقدار جدید بده
-                    if "port" not in p or not p.get("port"):
-                        p["port"] = sender_port
+                    p["port"] = sender_port
                     p["online"] = True
                     save_peers(self.peers)
 
