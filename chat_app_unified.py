@@ -311,6 +311,9 @@ class ChatApp:
         self.local_ip = get_local_ip()
         # راه‌اندازی listener برای دریافت پیام‌ها (تعریف شده در جای دیگر کد)
         self.listen_port = self.start_listener()
+        # user-visible name (editable in UI)
+        self.my_name = ""   # will be set from the entry below
+
 
         # نگهداری لیست همتایان (peers) و پنجره‌های چت باز شده
         self.peers = load_peers()
@@ -368,6 +371,56 @@ class ChatApp:
             font=("Segoe UI", 11, "bold")
         )
         self.ip_label.pack(pady=(0, 10))
+
+        # ----- Name entry under "Your IP" -----
+        name_frame = tk.Frame(frame, bg="#e7eefb")
+        name_frame.pack(pady=(0, 8), fill="x")
+
+        tk.Label(name_frame, text="Your name:", bg="#e7eefb", fg="#333", font=("Segoe UI", 10)).pack(side="left", padx=(4,6))
+        self.entry_name = tk.Entry(name_frame, font=("Segoe UI", 10), width=18, relief="flat")
+        self.entry_name.pack(side="left")
+
+        # 🔹 دکمه ذخیره نام
+        save_btn = tk.Button(name_frame, text="💾", bg="#5b9bd5", fg="white",
+                            font=("Segoe UI", 9, "bold"), relief="flat",
+                            command=lambda: _save_name_event())
+        save_btn.pack(side="left", padx=(6, 0))
+
+        # load default if you stored it previously in peers under local_ip (optional)
+        try:
+            self.my_name = self.peers.get(self.local_ip, {}).get("name", "") or ""
+            if self.my_name:
+                self.entry_name.insert(0, self.my_name)
+        except Exception:
+            self.my_name = ""
+
+        # save handler: update self.my_name when entry changes (Enter or focus out)
+        def _save_name_event(e=None):
+            print("Saving name:", self.entry_name.get())
+            try:
+                self.my_name = self.entry_name.get().strip()
+                # optionally persist under local_ip in peers (not required, but helpful)
+                try:
+                    if self.local_ip:
+                        p = self.peers.setdefault(self.local_ip, {})
+                        p["name"] = self.my_name
+                        save_peers(self.peers)
+                except Exception:
+                    logger.debug("Failed to persist local name to peers")
+                # refresh UI in case you want to display local name somewhere
+                try:
+                    self.refresh_peers()
+                except Exception:
+                    pass
+            except Exception:
+                logger.exception("Failed to save name from entry")
+
+        # رویدادها برای Enter و خروج از فیلد
+        self.entry_name.bind("<Return>", _save_name_event)
+        self.entry_name.bind("<KeyRelease-Return>", _save_name_event)  # اضافه‌شده
+        self.entry_name.bind("<FocusOut>", _save_name_event)
+        # ----------------------------------------
+
 
         # فریم لیست کاربران (اصلی)
         self.list_frame = tk.Frame(frame, bg="#ffffff", bd=1, relief="solid")
@@ -459,7 +512,11 @@ class ChatApp:
             canvas.pack(side="left", padx=(0, 8))
 
             # متن IP:Port
-            label_text = f"{ip}:{info['port']}"
+            port_str = info.get("port", "")
+            name_str = info.get("name", "")
+            label_text = f"{ip}:{port_str}"
+            if name_str:
+                label_text = f"{label_text}  —  {name_str}"
             if ip in self.new_msg_peers:
                 label_text = "⭐ " + label_text
 
@@ -817,6 +874,33 @@ class ChatApp:
                 logger.warning("Failed to unpack payload from %s: %s", ip, e)
                 conn.close()
                 return
+            
+
+            # ----------------- store peer name if provided -----------------
+            try:
+                if isinstance(obj, dict):
+                    peer_name = obj.get("name")
+                    if peer_name:
+                        # ensure peer exists and store the name
+                        p = self.peers.setdefault(ip, {})
+                        # keep the existing port if present, otherwise set from addr
+                        if "port" not in p or not p.get("port"):
+                            p["port"] = addr[1]
+                        p["name"] = peer_name
+                        # mark online because we got data from it
+                        p["online"] = True
+                        p["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                        save_peers(self.peers)
+                        # update UI safely
+                        try:
+                            self.root.after(0, self.refresh_peers)
+                        except Exception:
+                            pass
+            except Exception:
+                logger.exception("Failed to store peer name from incoming payload")
+            # ---------------------------------------------------------------
+
+
 
             # ----------------- 1. PING -----------------
             if isinstance(obj, dict) and "ping" in obj:
@@ -1007,8 +1091,22 @@ class ChatApp:
             s.connect((ip, port))  #هیچ محدودیتی روی IP وجود نداره.
 
 
+                        # attach sender name if available
+            try:
+                name_val = ""
+                if hasattr(self, "entry_name"):
+                    name_val = self.entry_name.get().strip()
+                elif hasattr(self, "my_name"):
+                    name_val = self.my_name
+            except Exception:
+                name_val = ""
+
             payload = {"msg": msg, "from_port": self.listen_port}
+            if name_val:
+                payload["name"] = name_val
+
             s.send(pack_payload(payload))
+
             # give remote a moment (optional) then close
             try:
                 s.shutdown(socket.SHUT_WR)
@@ -1036,7 +1134,11 @@ class ChatApp:
                             continue  # بیشتر از ۱ دقیقه از آخرین تماس گذشته، فعلاً پینگ نکن
                     except:
                         pass
-                ok = self.ping_peer(ip, info["port"])
+                port = info.get("port")
+                if not port:
+                    continue  # اگر port تعریف نشده، برو سراغ بعدی
+                ok = self.ping_peer(ip, port)
+
                 info["online"] = ok
                 self.root.after(0, self.refresh_peers)
 
