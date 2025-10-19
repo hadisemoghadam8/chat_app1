@@ -404,6 +404,12 @@ class ChatApp:
                     if self.local_ip:
                         p = self.peers.setdefault(self.local_ip, {})
                         p["name"] = self.my_name
+                        if self.local_ip:
+                            p = self.peers.setdefault(self.local_ip, {})
+                            p["name"] = self.my_name
+                            p["port"] = self.listen_port   # ✅ این خط رو اضافه کن
+                            save_peers(self.peers)
+
                         save_peers(self.peers)
                 except Exception:
                     logger.debug("Failed to persist local name to peers")
@@ -1069,21 +1075,26 @@ class ChatApp:
 
     def send_message(self, ip, port, msg):
         """
-        ارسال پیام به یک همتا؛ لاگ مفصل برای دیباگ.
+        ارسال پیام به همتا (peer) با کنترل کامل خطا و ثبت لاگ دقیق.
         """
         try:
+            # اطمینان از عدد بودن پورت
             try:
                 port = int(port)
             except Exception:
                 logger.warning("send_message: port is not int for %s: %r", ip, port)
 
-            logger.debug("send_message -> attempting connect to %s:%s (from listen port %s) msg=%s", ip, port, self.listen_port, msg if len(msg)<100 else msg[:100]+"...")
+            # ساخت سوکت و اتصال
+            logger.debug(
+                "send_message -> connecting to %s:%s (from listen port %s), msg=%s",
+                ip, port, self.listen_port,
+                msg if len(msg) < 100 else msg[:100] + "..."
+            )
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.settimeout(4)  # timeout for connect/send
-            s.connect((ip, port))  #هیچ محدودیتی روی IP وجود نداره.
+            s.settimeout(4)
+            s.connect((ip, port))
 
-
-                        # attach sender name if available
+            # ---- آماده‌سازی پیام ----
             try:
                 name_val = ""
                 if hasattr(self, "entry_name"):
@@ -1094,22 +1105,30 @@ class ChatApp:
                 name_val = ""
 
             payload = {"msg": msg, "from_port": self.listen_port}
+
+            # اطمینان از اینکه نام قابل رمزگذاری است (UTF-8 safe)
             if name_val:
-                payload["name"] = name_val
+                safe_name = name_val.encode("utf-8", "ignore").decode("utf-8", "ignore")
+                payload["name"] = safe_name
 
-            s.send(pack_payload(payload))
+            # ارسال داده بسته‌بندی‌شده
+            packed = pack_payload(payload)
+            s.send(packed)
 
-            # give remote a moment (optional) then close
+            # بستن امن سوکت
             try:
                 s.shutdown(socket.SHUT_WR)
             except Exception:
                 pass
             s.close()
-            logger.debug("send_message -> sent to %s:%s", ip, port)
+
+            logger.debug("send_message -> sent successfully to %s:%s", ip, port)
             return True
-        except Exception:
-            logger.exception("send_message failed to %s:%s", ip, port)
+
+        except Exception as e:
+            logger.exception(f"send_message failed to {ip}:{port} ({e})")
             return False
+
 
     def check_peers_online(self):
         """

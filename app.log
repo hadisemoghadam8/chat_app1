@@ -1,18 +1,15 @@
-2025-10-19 23:20:38,325 [INFO] Starting p2p chat app. SHARED_KEY set: no
-2025-10-19 23:20:38,373 [INFO] Selected new random port 7577 and saved to listen_port_DESKTOP-OBIM9JD.txt
-2025-10-19 23:20:38,374 [INFO] Listening on port 7577
-2025-10-19 23:21:06,319 [INFO] User added peer 192.168.1.53:63412
-2025-10-19 23:21:11,314 [DEBUG] send_message -> attempting connect to 192.168.1.53:63412 (from listen port 7577) msg=s,s,s
-2025-10-19 23:21:11,318 [DEBUG] send_message -> sent to 192.168.1.53:63412
-2025-10-19 23:21:18,111 [DEBUG] handle_conn from 192.168.1.53 (source_port=63418): {'ping': 1}
-2025-10-19 23:27:55,157 [INFO] Starting p2p chat app. SHARED_KEY set: no
-2025-10-19 23:27:55,221 [INFO] Read saved port: 7577
-2025-10-19 23:27:55,221 [INFO] Successfully bound to saved port 7577
-2025-10-19 23:27:55,221 [INFO] Listening on port 7577
-2025-10-19 23:28:02,007 [DEBUG] send_message -> attempting connect to 192.168.1.53:63412 (from listen port 7577) msg=555
-2025-10-19 23:28:02,021 [DEBUG] send_message -> sent to 192.168.1.53:63412
-2025-10-19 23:28:04,773 [DEBUG] handle_conn from 192.168.1.53 (source_port=63479): {'ping': 1}
-2025-10-19 23:28:07,662 [WARNING] ping_peer failed for 192.168.1.53:63479 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:28:14,755 [WARNING] ping_peer failed for 192.168.1.53:63479 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:28:21,850 [WARNING] ping_peer failed for 192.168.1.53:63479 ([WinError 10061] No connection could be made because the target machine actively refused it)
-2025-10-19 23:28:28,927 [WARNING] ping_peer failed for 192.168.1.53:63479 ([WinError 10061] No connection could be made because the target machine actively refused it)
+2025-10-19 23:29:27,551 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 23:29:27,589 [INFO] Selected new random port 7681 and saved to listen_port_DESKTOP-OBIM9JD.txt
+2025-10-19 23:29:27,589 [INFO] Listening on port 7681
+2025-10-19 23:29:56,623 [INFO] User added peer 192.168.1.53:63498
+2025-10-19 23:30:02,724 [DEBUG] send_message -> attempting connect to 192.168.1.53:63498 (from listen port 7681) msg=//
+2025-10-19 23:30:02,737 [DEBUG] send_message -> sent to 192.168.1.53:63498
+2025-10-19 23:30:35,303 [WARNING] ping_peer failed for 192.168.1.53:63498 ([WinError 10061] No connection could be made because the target machine actively refused it)
+2025-10-19 23:30:58,645 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 23:30:58,718 [INFO] Read saved port: 7681
+2025-10-19 23:30:58,718 [INFO] Successfully bound to saved port 7681
+2025-10-19 23:30:58,718 [INFO] Listening on port 7681
+2025-10-19 23:38:36,863 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 23:38:36,909 [INFO] Read saved port: 7681
+2025-10-19 23:38:36,910 [INFO] Successfully bound to saved port 7681
+2025-10-19 23:38:36,910 [INFO] Listening on port 7681
