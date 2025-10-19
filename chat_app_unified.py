@@ -856,7 +856,7 @@ class ChatApp:
         مدیریت اتصال ورودی:
         - دریافت و رمزگشایی پیام
         - تشخیص نوع پیام (PING / PONG / MSG)
-        - ساده‌سازی شده برای کاهش شلوغی و حذف ذخیره‌ی پینگ‌پونگ
+        - ذخیره‌ی نام فرستنده (اگر موجود باشد)
         """
         ip = addr[0]
         try:
@@ -865,69 +865,57 @@ class ChatApp:
                 conn.close()
                 return
 
-            # تلاش برای رمزگشایی پیام
+            # --- رمزگشایی پیام ---
             try:
                 obj = unpack_payload(data)
-                # فقط در حالت debug نمایش داده شود
                 logger.debug("handle_conn from %s (source_port=%s): %s", addr[0], addr[1], obj)
             except Exception as e:
                 logger.warning("Failed to unpack payload from %s: %s", ip, e)
                 conn.close()
                 return
-            
 
-            # ----------------- store peer name if provided -----------------
+            # --- ذخیره نام فرستنده اگر موجود است ---
             try:
                 if isinstance(obj, dict):
                     peer_name = obj.get("name")
                     if peer_name:
-                        # ensure peer exists and store the name
                         p = self.peers.setdefault(ip, {})
-                        # keep the existing port if present, otherwise set from addr
                         if "port" not in p or not p.get("port"):
                             p["port"] = addr[1]
                         p["name"] = peer_name
-                        # mark online because we got data from it
                         p["online"] = True
                         p["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                         save_peers(self.peers)
-                        # update UI safely
                         try:
                             self.root.after(0, self.refresh_peers)
                         except Exception:
                             pass
             except Exception:
                 logger.exception("Failed to store peer name from incoming payload")
-            # ---------------------------------------------------------------
 
-
-
-            # ----------------- 1. PING -----------------
+            # --- 1. PING ---
             if isinstance(obj, dict) and "ping" in obj:
-                # پاسخ پونگ برای تأیید آنلاین بودن
                 resp = {"pong": 1, "rtt_ms": 0}
                 try:
                     conn.send(pack_payload(resp))
-                    # به‌روزرسانی وضعیت آنلاین در peers
-                    if ip not in self.peers:
-                        self.peers[ip] = {"port": addr[1], "online": True}
-                    else:
-                        self.peers[ip]["online"] = True
-                    self.peers[ip]["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    p = self.peers.setdefault(ip, {})
+                    p["port"] = addr[1]
+                    p["online"] = True
+                    p["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     save_peers(self.peers)
                 except Exception:
                     logger.debug("Failed to send PONG to %s", ip)
 
-            # ----------------- 2. PONG -----------------
+            # --- 2. PONG ---
             elif isinstance(obj, dict) and "pong" in obj:
-                # فقط به‌روزرسانی وضعیت آنلاین، بدون ثبت یا لاگ
-                if ip in self.peers:
-                    self.peers[ip]["online"] = True
-                    self.peers[ip]["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                    save_peers(self.peers)
+                p = self.peers.setdefault(ip, {})
+                p["port"] = addr[1]
+                p["online"] = True
+                p["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                save_peers(self.peers)
                 logger.debug("Received PONG from %s", ip)
 
-            # ----------------- 3. MSG -----------------
+            # --- 3. MSG ---
             elif isinstance(obj, dict) and "msg" in obj:
                 msg = obj["msg"]
                 sender_port = None
@@ -937,10 +925,12 @@ class ChatApp:
                     except Exception:
                         sender_port = obj.get("from_port")
 
-                # پیام تست داخلی را نادیده بگیر
+                # پیام تست داخلی
                 if msg == "__TEST_REPLY__":
                     if sender_port:
-                        self.peers[ip] = {"port": sender_port, "online": True}
+                        p = self.peers.setdefault(ip, {})
+                        p["port"] = sender_port
+                        p["online"] = True
                         save_peers(self.peers)
                     try:
                         self.root.after(0, self.refresh_peers)
@@ -948,25 +938,27 @@ class ChatApp:
                         logger.debug("Failed to refresh peers after TEST_REPLY")
                     return
 
-                # پیام واقعی: ذخیره و نمایش
+                # پیام واقعی
                 try:
                     record_history(ip, "in", msg, entry_type="msg")
                 except Exception:
                     logger.warning("Failed to record incoming msg from %s", ip)
 
                 logger.info("Received message from %s", ip)
+
                 if sender_port:
-                    self.peers[ip] = {"port": sender_port, "online": True}
+                    p = self.peers.setdefault(ip, {})
+                    p["port"] = sender_port
+                    p["online"] = True
                     save_peers(self.peers)
 
-                # رفرش رابط کاربری
                 try:
                     self.root.after(0, self.refresh_peers)
                     self.root.after(0, lambda ip=ip, msg=msg: self.display_incoming(ip, msg))
                 except Exception:
                     logger.warning("Failed to update UI after message from %s", ip)
 
-            # ----------------- 4. Unknown -----------------
+            # --- 4. Unknown ---
             else:
                 logger.debug("Unknown object from %s: %s", ip, obj)
 
