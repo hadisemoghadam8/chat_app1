@@ -720,7 +720,7 @@ class ChatApp:
 
             # اطلاع در رابط کاربری
             logger.info("Listening on port %d", port)
-            messagebox.showinfo("Listening", f"✅ Listening on port {port}")
+            # messagebox.showinfo("Listening", f"✅ Listening on port {port}")
             return port
 
         except OSError as e:
@@ -1038,6 +1038,8 @@ class ChatApp:
                         pass
                 ok = self.ping_peer(ip, info["port"])
                 info["online"] = ok
+                self.root.after(0, self.refresh_peers)
+
 
             # بعد از بررسی همه همتاها، UI لیست کاربران را رفرش می‌کند
             self.refresh_peers()
@@ -1047,61 +1049,34 @@ class ChatApp:
 
 
     def ping_peer(self, ip, port):
-        """
-        ارسال پینگ {"ping":1} به همتا و انتظار برای پاسخ {"pong":1, "rtt_ms":...}.
-        پینگ/پونگ هرگز در UI چت نمایش داده نمی‌شوند؛ فقط به عنوان entry_type="ping" در تاریخچه ذخیره می‌شوند.
-        """
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.settimeout(3)  # زمان مجاز برای پاسخ
+            s.settimeout(3)
             start = time.time()
-
-            # اتصال به همتا
             s.connect((ip, port))
-
-            # ارسال پیام پینگ
             s.send(pack_payload({"ping": 1}))
-
-            # اطلاع دادن به سیستم مقصد که دیگر داده‌ای ارسال نمی‌شود
             try:
                 s.shutdown(socket.SHUT_WR)
             except Exception:
                 pass
-
-            # دریافت پاسخ پونگ (یا خالی)
-            data = b""
-            try:
-                data = s.recv(8192)
-            except Exception:
-                pass
-
-            # بازکردن بسته پونگ دریافتی
-            try:
-                obj = unpack_payload(data) if data else {}
-            except Exception as e:
-                logger.exception("Failed to unpack pong from %s: %s", ip, e)
-                s.close()
-                return False
-
+            data = s.recv(8192)
             s.close()
 
-            # محاسبه‌ی زمان رفت و برگشت پینگ به میلی‌ثانیه
+            obj = unpack_payload(data) if data else {}
             elapsed_ms = int((time.time() - start) * 1000)
 
-            # اگر پاسخ معتبر پونگ بود
             if isinstance(obj, dict) and obj.get("pong"):
-                rtt_val = obj.get("rtt_ms", elapsed_ms)
-                # فقط وضعیت آنلاین را به‌روزرسانی کن، بدون ذخیره در history
                 if ip in self.peers:
                     self.peers[ip]["online"] = True
                     self.peers[ip]["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     save_peers(self.peers)
-                logger.debug("Ping to %s success %d ms", ip, rtt_val)
                 return True
 
-
-        except Exception:
-            logger.exception("ping_peer failed for %s:%s", ip, port)
+        except Exception as e:
+            logger.warning("ping_peer failed for %s:%s (%s)", ip, port, e)
+            if ip in self.peers:
+                self.peers[ip]["online"] = False
+                save_peers(self.peers)
             return False
 
 

@@ -714,3 +714,87 @@ TimeoutError: timed out
 2025-10-19 21:59:04,437 [INFO] Read saved port: 12566
 2025-10-19 21:59:04,438 [INFO] Successfully bound to saved port 12566
 2025-10-19 21:59:04,438 [INFO] Listening on port 12566
+2025-10-19 22:29:54,527 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 22:29:54,817 [INFO] Read saved port: 12566
+2025-10-19 22:29:54,818 [INFO] Successfully bound to saved port 12566
+2025-10-19 22:29:54,818 [INFO] Listening on port 12566
+2025-10-19 22:30:22,701 [INFO] Manual refresh triggered
+2025-10-19 22:31:14,405 [INFO] User added peer 192.168.1.53:53771
+2025-10-19 22:31:16,034 [DEBUG] Ping to 192.168.1.53 success 0 ms
+2025-10-19 22:31:21,069 [DEBUG] Ping to 192.168.1.53 success 0 ms
+2025-10-19 22:31:22,616 [DEBUG] send_message -> attempting connect to 192.168.1.53:53771 (from listen port 12566) msg=k;k;
+2025-10-19 22:31:22,630 [DEBUG] send_message -> sent to 192.168.1.53:53771
+2025-10-19 22:31:26,124 [DEBUG] Ping to 192.168.1.53 success 0 ms
+2025-10-19 22:31:30,168 [DEBUG] handle_conn from 192.168.1.53 (source_port=62866): {'ping': 1}
+2025-10-19 22:31:31,169 [DEBUG] Ping to 192.168.1.53 success 0 ms
+2025-10-19 22:31:34,744 [DEBUG] handle_conn from 192.168.1.53 (source_port=62867): {'msg': '555', 'from_port': 53771}
+2025-10-19 22:31:34,750 [INFO] Received message from 192.168.1.53
+2025-10-19 22:31:35,195 [DEBUG] handle_conn from 192.168.1.53 (source_port=62868): {'ping': 1}
+2025-10-19 22:31:36,269 [DEBUG] Ping to 192.168.1.53 success 0 ms
+2025-10-19 22:31:40,214 [DEBUG] handle_conn from 192.168.1.53 (source_port=62869): {'ping': 1}
+2025-10-19 22:31:43,344 [ERROR] ping_peer failed for 192.168.1.53:53771
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 1060, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-19 22:31:50,451 [ERROR] ping_peer failed for 192.168.1.53:53771
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 1060, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-19 22:31:59,534 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 22:31:59,580 [INFO] Read saved port: 12566
+2025-10-19 22:31:59,581 [INFO] Successfully bound to saved port 12566
+2025-10-19 22:31:59,581 [INFO] Listening on port 12566
+2025-10-19 22:32:11,919 [ERROR] ping_peer failed for 192.168.1.53:53771
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 1060, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-19 22:32:19,038 [ERROR] ping_peer failed for 192.168.1.53:53771
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 1060, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-19 22:32:26,130 [ERROR] ping_peer failed for 192.168.1.53:53771
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 1060, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-19 22:32:33,226 [ERROR] ping_peer failed for 192.168.1.53:53771
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 1060, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-19 22:32:39,822 [INFO] Local IP changed: 192.168.1.54 -> 127.0.0.1
+2025-10-19 22:32:40,320 [ERROR] ping_peer failed for 192.168.1.53:53771
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 1060, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-19 22:32:44,838 [INFO] Local IP changed: 127.0.0.1 -> 192.168.10.213
+2025-10-19 22:38:00,677 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 22:38:00,718 [INFO] Read saved port: 12566
+2025-10-19 22:38:00,718 [INFO] Successfully bound to saved port 12566
+2025-10-19 22:38:00,718 [INFO] Listening on port 12566
+2025-10-19 22:45:09,723 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 22:45:09,761 [INFO] Read saved port: 12566
+2025-10-19 22:45:09,762 [INFO] Successfully bound to saved port 12566
+2025-10-19 22:45:09,762 [INFO] Listening on port 12566
+2025-10-19 22:45:14,837 [INFO] Manual refresh triggered
+2025-10-19 22:46:38,505 [DEBUG] handle_conn from 192.168.1.53 (source_port=63021): {'msg': '564', 'from_port': 53771}
+2025-10-19 22:46:38,512 [INFO] Received message from 192.168.1.53
+2025-10-19 22:46:44,085 [DEBUG] handle_conn from 192.168.1.53 (source_port=63022): {'ping': 1}
+2025-10-19 22:46:49,156 [DEBUG] handle_conn from 192.168.1.53 (source_port=63023): {'ping': 1}
+2025-10-19 22:46:54,245 [DEBUG] handle_conn from 192.168.1.53 (source_port=63024): {'ping': 1}
+2025-10-19 22:46:58,867 [DEBUG] send_message -> attempting connect to 192.168.1.53:53771 (from listen port 12566) msg=55555555555555
+2025-10-19 22:46:58,912 [DEBUG] send_message -> sent to 192.168.1.53:53771
+2025-10-19 22:46:59,308 [DEBUG] handle_conn from 192.168.1.53 (source_port=63025): {'ping': 1}
+2025-10-19 22:47:04,411 [DEBUG] handle_conn from 192.168.1.53 (source_port=63026): {'ping': 1}
