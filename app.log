@@ -1,0 +1,716 @@
+2025-10-18 09:56:48,710 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 09:56:48,751 [INFO] Selected new random port 12566 and saved to listen_port_DESKTOP-OBIM9JD.txt
+2025-10-18 10:03:54,849 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 10:03:54,901 [INFO] Bound to saved port 12566
+2025-10-18 10:04:43,923 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 10:04:43,974 [INFO] Bound to saved port 12566
+2025-10-18 10:05:43,264 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 10:05:43,311 [INFO] Bound to saved port 12566
+2025-10-18 10:06:15,334 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 10:06:15,374 [INFO] Bound to saved port 12566
+2025-10-18 10:30:54,395 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 10:30:54,439 [INFO] Bound to saved port 12566
+2025-10-18 10:31:11,535 [INFO] Manual refresh triggered
+2025-10-18 10:31:11,536 [WARNING] Failed to check local IP change: 'ChatApp' object has no attribute 'server_port'
+2025-10-18 10:31:12,056 [INFO] Manual refresh triggered
+2025-10-18 10:31:12,057 [WARNING] Failed to check local IP change: 'ChatApp' object has no attribute 'server_port'
+2025-10-18 10:35:03,177 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 10:35:03,216 [INFO] Bound to saved port 12566
+2025-10-18 10:35:32,171 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 10:35:32,215 [INFO] Bound to saved port 12566
+2025-10-18 10:35:33,937 [INFO] Manual refresh triggered
+2025-10-18 10:37:30,093 [INFO] Manual refresh triggered
+2025-10-18 10:37:30,094 [INFO] Local IP changed: 20.10.28.58 -> 192.168.0.102
+2025-10-18 10:37:32,560 [INFO] handle_conn from 192.168.0.102 (source_port=2552) payload: {'ping': 1}
+2025-10-18 10:37:32,562 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:37:32,566 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:37:32,928 [INFO] Manual refresh triggered
+2025-10-18 10:37:33,409 [INFO] Manual refresh triggered
+2025-10-18 10:37:33,576 [INFO] Manual refresh triggered
+2025-10-18 10:37:33,735 [INFO] Manual refresh triggered
+2025-10-18 10:37:33,899 [INFO] Manual refresh triggered
+2025-10-18 10:37:34,069 [INFO] Manual refresh triggered
+2025-10-18 10:37:37,584 [INFO] handle_conn from 192.168.0.102 (source_port=2566) payload: {'ping': 1}
+2025-10-18 10:37:37,585 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:37:37,586 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:37:42,602 [INFO] handle_conn from 192.168.0.102 (source_port=2581) payload: {'ping': 1}
+2025-10-18 10:37:42,602 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:37:42,604 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:37:47,621 [INFO] handle_conn from 192.168.0.102 (source_port=2584) payload: {'ping': 1}
+2025-10-18 10:37:47,621 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:37:47,622 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:37:52,639 [INFO] handle_conn from 192.168.0.102 (source_port=2603) payload: {'ping': 1}
+2025-10-18 10:37:52,640 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:37:52,641 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:37:57,668 [INFO] handle_conn from 192.168.0.102 (source_port=8644) payload: {'ping': 1}
+2025-10-18 10:37:57,682 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:37:57,689 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:37:58,848 [INFO] Manual refresh triggered
+2025-10-18 10:37:59,385 [INFO] Manual refresh triggered
+2025-10-18 10:37:59,835 [INFO] Manual refresh triggered
+2025-10-18 10:38:02,706 [INFO] handle_conn from 192.168.0.102 (source_port=8665) payload: {'ping': 1}
+2025-10-18 10:38:02,708 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:38:02,712 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:38:07,730 [INFO] handle_conn from 192.168.0.102 (source_port=8676) payload: {'ping': 1}
+2025-10-18 10:38:07,732 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:38:07,736 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:38:12,762 [INFO] handle_conn from 192.168.0.102 (source_port=8681) payload: {'ping': 1}
+2025-10-18 10:38:12,764 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:38:12,769 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:38:17,786 [INFO] handle_conn from 192.168.0.102 (source_port=8682) payload: {'ping': 1}
+2025-10-18 10:38:17,787 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:38:17,788 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:38:22,808 [INFO] handle_conn from 192.168.0.102 (source_port=8695) payload: {'ping': 1}
+2025-10-18 10:38:22,809 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:38:22,814 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:38:27,832 [INFO] handle_conn from 192.168.0.102 (source_port=8698) payload: {'ping': 1}
+2025-10-18 10:38:27,833 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:38:27,838 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:38:32,856 [INFO] handle_conn from 192.168.0.102 (source_port=8699) payload: {'ping': 1}
+2025-10-18 10:38:32,857 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:38:32,861 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:38:37,892 [INFO] handle_conn from 192.168.0.102 (source_port=8702) payload: {'ping': 1}
+2025-10-18 10:38:37,893 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:38:37,898 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:38:42,917 [INFO] handle_conn from 192.168.0.102 (source_port=8703) payload: {'ping': 1}
+2025-10-18 10:38:42,919 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:38:42,925 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:38:47,944 [INFO] handle_conn from 192.168.0.102 (source_port=8707) payload: {'ping': 1}
+2025-10-18 10:38:47,946 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:38:47,951 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:38:52,970 [INFO] handle_conn from 192.168.0.102 (source_port=8718) payload: {'ping': 1}
+2025-10-18 10:38:52,972 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:38:52,977 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:38:57,980 [INFO] handle_conn from 192.168.0.102 (source_port=8719) payload: {'ping': 1}
+2025-10-18 10:38:57,980 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:38:57,982 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:39:02,999 [INFO] handle_conn from 192.168.0.102 (source_port=8722) payload: {'ping': 1}
+2025-10-18 10:39:03,000 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:39:03,005 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:39:08,025 [INFO] handle_conn from 192.168.0.102 (source_port=8727) payload: {'ping': 1}
+2025-10-18 10:39:08,026 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:39:08,027 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:39:13,044 [INFO] handle_conn from 192.168.0.102 (source_port=8733) payload: {'ping': 1}
+2025-10-18 10:39:13,045 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:39:13,050 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:39:18,081 [INFO] handle_conn from 192.168.0.102 (source_port=8738) payload: {'ping': 1}
+2025-10-18 10:39:18,082 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:39:18,087 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:39:23,099 [INFO] handle_conn from 192.168.0.102 (source_port=8745) payload: {'ping': 1}
+2025-10-18 10:39:23,100 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:39:23,104 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:40:56,094 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 10:40:56,135 [INFO] Bound to saved port 12566
+2025-10-18 10:40:56,311 [INFO] handle_conn from 192.168.0.102 (source_port=8994) payload: {'ping': 1}
+2025-10-18 10:40:56,311 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:40:56,313 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:41:11,327 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 10:41:11,372 [INFO] Bound to saved port 12566
+2025-10-18 10:41:11,549 [INFO] handle_conn from 192.168.0.102 (source_port=9025) payload: {'ping': 1}
+2025-10-18 10:41:11,550 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:41:11,551 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:41:16,577 [INFO] handle_conn from 192.168.0.102 (source_port=6166) payload: {'ping': 1}
+2025-10-18 10:41:16,577 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:41:16,579 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:41:21,597 [INFO] handle_conn from 192.168.0.102 (source_port=6173) payload: {'ping': 1}
+2025-10-18 10:41:21,598 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:41:21,603 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:41:24,422 [INFO] Manual refresh triggered
+2025-10-18 10:52:31,495 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 10:52:31,541 [INFO] Bound to saved port 12566
+2025-10-18 10:52:31,750 [INFO] handle_conn from 192.168.0.102 (source_port=6977) payload: {'ping': 1}
+2025-10-18 10:52:31,751 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:52:31,752 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:52:36,781 [INFO] handle_conn from 192.168.0.102 (source_port=6988) payload: {'ping': 1}
+2025-10-18 10:52:36,783 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:52:36,789 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:52:41,807 [INFO] handle_conn from 192.168.0.102 (source_port=6993) payload: {'ping': 1}
+2025-10-18 10:52:41,808 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:52:41,815 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:52:46,833 [INFO] handle_conn from 192.168.0.102 (source_port=7007) payload: {'ping': 1}
+2025-10-18 10:52:46,834 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:52:46,836 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:52:51,855 [INFO] handle_conn from 192.168.0.102 (source_port=7028) payload: {'ping': 1}
+2025-10-18 10:52:51,855 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:52:51,857 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:52:56,874 [INFO] handle_conn from 192.168.0.102 (source_port=7076) payload: {'ping': 1}
+2025-10-18 10:52:56,875 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:52:56,881 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:53:01,900 [INFO] handle_conn from 192.168.0.102 (source_port=7148) payload: {'ping': 1}
+2025-10-18 10:53:01,900 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:53:01,903 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:53:06,921 [INFO] handle_conn from 192.168.0.102 (source_port=7188) payload: {'ping': 1}
+2025-10-18 10:53:06,922 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:53:06,925 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:53:11,944 [INFO] handle_conn from 192.168.0.102 (source_port=7223) payload: {'ping': 1}
+2025-10-18 10:53:11,945 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:53:11,949 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:53:16,966 [INFO] handle_conn from 192.168.0.102 (source_port=7230) payload: {'ping': 1}
+2025-10-18 10:53:16,968 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:53:16,975 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:53:19,171 [INFO] Manual refresh triggered
+2025-10-18 10:53:19,172 [INFO] Local IP changed: 20.10.225.146 -> 192.168.0.102
+2025-10-18 10:53:22,001 [INFO] handle_conn from 192.168.0.102 (source_port=14546) payload: {'ping': 1}
+2025-10-18 10:53:22,002 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:53:22,004 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:53:26,402 [INFO] Manual refresh triggered
+2025-10-18 10:53:26,403 [INFO] Local IP changed: 192.168.0.102 -> 20.10.29.112
+2025-10-18 10:53:27,021 [INFO] handle_conn from 20.10.29.112 (source_port=14566) payload: {'ping': 1}
+2025-10-18 10:53:27,022 [DEBUG] Received PING from 20.10.29.112
+2025-10-18 10:53:27,023 [DEBUG] Ping to 20.10.29.112 success 0 ms
+2025-10-18 10:53:31,813 [INFO] Local IP changed: 20.10.29.112 -> 192.168.0.102
+2025-10-18 10:53:32,044 [INFO] handle_conn from 192.168.0.102 (source_port=7720) payload: {'ping': 1}
+2025-10-18 10:53:32,046 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:53:32,052 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:53:37,069 [INFO] handle_conn from 192.168.0.102 (source_port=7747) payload: {'ping': 1}
+2025-10-18 10:53:37,069 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:53:37,071 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:53:42,088 [INFO] handle_conn from 192.168.0.102 (source_port=7770) payload: {'ping': 1}
+2025-10-18 10:53:42,089 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:53:42,092 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:53:47,110 [INFO] handle_conn from 192.168.0.102 (source_port=7793) payload: {'ping': 1}
+2025-10-18 10:53:47,111 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:53:47,118 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:53:52,137 [INFO] handle_conn from 192.168.0.102 (source_port=7814) payload: {'ping': 1}
+2025-10-18 10:53:52,137 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:53:52,143 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:53:57,156 [INFO] handle_conn from 192.168.0.102 (source_port=7835) payload: {'ping': 1}
+2025-10-18 10:53:57,157 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:53:57,161 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:54:01,873 [INFO] Local IP changed: 192.168.0.102 -> 20.10.29.121
+2025-10-18 10:54:02,173 [INFO] handle_conn from 20.10.29.121 (source_port=7883) payload: {'ping': 1}
+2025-10-18 10:54:02,174 [DEBUG] Received PING from 20.10.29.121
+2025-10-18 10:54:02,177 [DEBUG] Ping to 20.10.29.121 success 0 ms
+2025-10-18 10:54:06,878 [INFO] Local IP changed: 20.10.29.121 -> 192.168.0.102
+2025-10-18 10:54:07,179 [INFO] handle_conn from 192.168.0.102 (source_port=12523) payload: {'ping': 1}
+2025-10-18 10:54:07,179 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:54:07,181 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:54:11,887 [INFO] Local IP changed: 192.168.0.102 -> 20.10.28.76
+2025-10-18 10:54:12,198 [INFO] handle_conn from 20.10.28.76 (source_port=12561) payload: {'ping': 1}
+2025-10-18 10:54:12,198 [DEBUG] Received PING from 20.10.28.76
+2025-10-18 10:54:12,200 [DEBUG] Ping to 20.10.28.76 success 0 ms
+2025-10-18 10:54:17,217 [INFO] handle_conn from 20.10.28.76 (source_port=12569) payload: {'ping': 1}
+2025-10-18 10:54:17,219 [DEBUG] Received PING from 20.10.28.76
+2025-10-18 10:54:17,225 [DEBUG] Ping to 20.10.28.76 success 0 ms
+2025-10-18 10:54:21,914 [INFO] Local IP changed: 20.10.28.76 -> 192.168.0.102
+2025-10-18 10:54:22,262 [INFO] handle_conn from 192.168.0.102 (source_port=11361) payload: {'ping': 1}
+2025-10-18 10:54:22,263 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:54:22,269 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:54:27,286 [INFO] handle_conn from 192.168.0.102 (source_port=2502) payload: {'ping': 1}
+2025-10-18 10:54:27,287 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:54:27,294 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:54:31,920 [INFO] Local IP changed: 192.168.0.102 -> 20.10.29.123
+2025-10-18 10:54:32,308 [INFO] handle_conn from 20.10.29.123 (source_port=2522) payload: {'ping': 1}
+2025-10-18 10:54:32,310 [DEBUG] Received PING from 20.10.29.123
+2025-10-18 10:54:32,317 [DEBUG] Ping to 20.10.29.123 success 0 ms
+2025-10-18 10:54:36,924 [INFO] Local IP changed: 20.10.29.123 -> 192.168.0.102
+2025-10-18 10:54:37,340 [INFO] handle_conn from 192.168.0.102 (source_port=12080) payload: {'ping': 1}
+2025-10-18 10:54:37,341 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:54:37,343 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:54:37,904 [INFO] Manual refresh triggered
+2025-10-18 10:54:42,360 [INFO] handle_conn from 192.168.0.102 (source_port=12092) payload: {'ping': 1}
+2025-10-18 10:54:42,361 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:54:42,367 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:54:46,099 [DEBUG] send_message -> attempting connect to 192.168.0.102:12566 (from listen port 12566) msg=4545
+2025-10-18 10:54:46,109 [INFO] handle_conn from 192.168.0.102 (source_port=12099) payload: {'msg': '4545', 'from_port': 12566}
+2025-10-18 10:54:46,109 [DEBUG] send_message -> sent to 192.168.0.102:12566
+2025-10-18 10:54:46,112 [INFO] Received message from 192.168.0.102
+2025-10-18 10:54:46,113 [DEBUG] Updated peer 192.168.0.102 port to 12566
+2025-10-18 10:54:47,371 [INFO] handle_conn from 192.168.0.102 (source_port=12100) payload: {'ping': 1}
+2025-10-18 10:54:47,371 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:54:47,376 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:54:51,671 [DEBUG] send_message -> attempting connect to 192.168.0.102:12566 (from listen port 12566) msg=4545
+2025-10-18 10:54:51,684 [INFO] handle_conn from 192.168.0.102 (source_port=12105) payload: {'msg': '4545', 'from_port': 12566}
+2025-10-18 10:54:51,685 [DEBUG] send_message -> sent to 192.168.0.102:12566
+2025-10-18 10:54:51,689 [INFO] Received message from 192.168.0.102
+2025-10-18 10:54:51,690 [DEBUG] Updated peer 192.168.0.102 port to 12566
+2025-10-18 10:54:52,391 [INFO] handle_conn from 192.168.0.102 (source_port=12106) payload: {'ping': 1}
+2025-10-18 10:54:52,391 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:54:52,399 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:54:57,417 [INFO] handle_conn from 192.168.0.102 (source_port=12109) payload: {'ping': 1}
+2025-10-18 10:54:57,418 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:54:57,426 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:55:02,445 [INFO] handle_conn from 192.168.0.102 (source_port=12111) payload: {'ping': 1}
+2025-10-18 10:55:02,446 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:55:02,454 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:55:07,473 [INFO] handle_conn from 192.168.0.102 (source_port=12119) payload: {'ping': 1}
+2025-10-18 10:55:07,473 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:55:07,475 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:55:12,009 [INFO] Local IP changed: 192.168.0.102 -> 127.0.0.1
+2025-10-18 10:55:12,492 [INFO] handle_conn from 127.0.0.1 (source_port=12128) payload: {'ping': 1}
+2025-10-18 10:55:12,493 [DEBUG] Received PING from 127.0.0.1
+2025-10-18 10:55:12,499 [DEBUG] Ping to 127.0.0.1 success 0 ms
+2025-10-18 10:55:17,020 [INFO] Local IP changed: 127.0.0.1 -> 192.168.0.102
+2025-10-18 10:55:17,517 [INFO] handle_conn from 192.168.0.102 (source_port=12139) payload: {'ping': 1}
+2025-10-18 10:55:17,517 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:55:17,521 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:55:22,539 [INFO] handle_conn from 192.168.0.102 (source_port=12140) payload: {'ping': 1}
+2025-10-18 10:55:22,539 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:55:22,547 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:55:27,565 [INFO] handle_conn from 192.168.0.102 (source_port=12143) payload: {'ping': 1}
+2025-10-18 10:55:27,566 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:55:27,575 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:55:32,594 [INFO] handle_conn from 192.168.0.102 (source_port=12147) payload: {'ping': 1}
+2025-10-18 10:55:32,595 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:55:32,603 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:55:37,620 [INFO] handle_conn from 192.168.0.102 (source_port=12148) payload: {'ping': 1}
+2025-10-18 10:55:37,621 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:55:37,623 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:55:42,637 [INFO] handle_conn from 192.168.0.102 (source_port=6256) payload: {'ping': 1}
+2025-10-18 10:55:42,638 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:55:42,646 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:55:47,664 [INFO] handle_conn from 192.168.0.102 (source_port=6257) payload: {'ping': 1}
+2025-10-18 10:55:47,665 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:55:47,672 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:55:52,685 [INFO] handle_conn from 192.168.0.102 (source_port=2477) payload: {'ping': 1}
+2025-10-18 10:55:52,686 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:55:52,694 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:55:57,711 [INFO] handle_conn from 192.168.0.102 (source_port=2480) payload: {'ping': 1}
+2025-10-18 10:55:57,712 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:55:57,720 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:56:02,748 [INFO] handle_conn from 192.168.0.102 (source_port=2487) payload: {'ping': 1}
+2025-10-18 10:56:02,748 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:56:02,750 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:56:07,752 [INFO] handle_conn from 192.168.0.102 (source_port=2494) payload: {'ping': 1}
+2025-10-18 10:56:07,752 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:56:07,754 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:56:12,758 [INFO] handle_conn from 192.168.0.102 (source_port=2499) payload: {'ping': 1}
+2025-10-18 10:56:12,759 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:56:12,765 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:56:17,779 [INFO] handle_conn from 192.168.0.102 (source_port=2500) payload: {'ping': 1}
+2025-10-18 10:56:17,780 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:56:17,788 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:56:22,816 [INFO] handle_conn from 192.168.0.102 (source_port=2505) payload: {'ping': 1}
+2025-10-18 10:56:22,817 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:56:22,827 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:56:27,846 [INFO] handle_conn from 192.168.0.102 (source_port=2506) payload: {'ping': 1}
+2025-10-18 10:56:27,847 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:56:27,855 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:56:32,859 [INFO] handle_conn from 192.168.0.102 (source_port=2515) payload: {'ping': 1}
+2025-10-18 10:56:32,860 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:56:32,868 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:56:37,869 [INFO] handle_conn from 192.168.0.102 (source_port=2528) payload: {'ping': 1}
+2025-10-18 10:56:37,870 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:56:37,872 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:56:42,889 [INFO] handle_conn from 192.168.0.102 (source_port=2533) payload: {'ping': 1}
+2025-10-18 10:56:42,890 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:56:42,899 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:56:47,917 [INFO] handle_conn from 192.168.0.102 (source_port=2546) payload: {'ping': 1}
+2025-10-18 10:56:47,919 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:56:47,928 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:56:52,947 [INFO] handle_conn from 192.168.0.102 (source_port=2553) payload: {'ping': 1}
+2025-10-18 10:56:52,949 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:56:52,957 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:56:57,975 [INFO] handle_conn from 192.168.0.102 (source_port=2559) payload: {'ping': 1}
+2025-10-18 10:56:57,976 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:56:57,985 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:57:03,003 [INFO] handle_conn from 192.168.0.102 (source_port=2568) payload: {'ping': 1}
+2025-10-18 10:57:03,005 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:57:03,015 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:57:08,028 [INFO] handle_conn from 192.168.0.102 (source_port=2575) payload: {'ping': 1}
+2025-10-18 10:57:08,029 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:57:08,038 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:57:13,056 [INFO] handle_conn from 192.168.0.102 (source_port=3808) payload: {'ping': 1}
+2025-10-18 10:57:13,057 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:57:13,066 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:57:18,085 [INFO] handle_conn from 192.168.0.102 (source_port=3821) payload: {'ping': 1}
+2025-10-18 10:57:18,086 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:57:18,095 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:57:23,113 [INFO] handle_conn from 192.168.0.102 (source_port=9909) payload: {'ping': 1}
+2025-10-18 10:57:23,114 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:57:23,124 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:57:28,127 [INFO] handle_conn from 192.168.0.102 (source_port=9918) payload: {'ping': 1}
+2025-10-18 10:57:28,128 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:57:28,137 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:57:33,171 [INFO] handle_conn from 192.168.0.102 (source_port=9927) payload: {'ping': 1}
+2025-10-18 10:57:33,172 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:57:33,180 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:57:38,196 [INFO] handle_conn from 192.168.0.102 (source_port=9930) payload: {'ping': 1}
+2025-10-18 10:57:38,197 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:57:38,200 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:57:43,216 [INFO] handle_conn from 192.168.0.102 (source_port=9947) payload: {'ping': 1}
+2025-10-18 10:57:43,217 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:57:43,220 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:57:48,238 [INFO] handle_conn from 192.168.0.102 (source_port=9960) payload: {'ping': 1}
+2025-10-18 10:57:48,239 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:57:48,247 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:57:53,250 [INFO] handle_conn from 192.168.0.102 (source_port=10657) payload: {'ping': 1}
+2025-10-18 10:57:53,250 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:57:53,252 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:57:57,250 [INFO] Local IP changed: 192.168.0.102 -> 127.0.0.1
+2025-10-18 10:57:58,269 [INFO] handle_conn from 127.0.0.1 (source_port=7092) payload: {'ping': 1}
+2025-10-18 10:57:58,269 [DEBUG] Received PING from 127.0.0.1
+2025-10-18 10:57:58,272 [DEBUG] Ping to 127.0.0.1 success 0 ms
+2025-10-18 10:58:02,264 [INFO] Local IP changed: 127.0.0.1 -> 20.10.26.4
+2025-10-18 10:58:03,289 [INFO] handle_conn from 20.10.26.4 (source_port=7112) payload: {'ping': 1}
+2025-10-18 10:58:03,290 [DEBUG] Received PING from 20.10.26.4
+2025-10-18 10:58:03,296 [DEBUG] Ping to 20.10.26.4 success 0 ms
+2025-10-18 10:58:07,276 [INFO] Local IP changed: 20.10.26.4 -> 192.168.0.102
+2025-10-18 10:58:08,309 [INFO] handle_conn from 192.168.0.102 (source_port=7128) payload: {'ping': 1}
+2025-10-18 10:58:08,309 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:58:08,316 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:58:13,332 [INFO] handle_conn from 192.168.0.102 (source_port=7143) payload: {'ping': 1}
+2025-10-18 10:58:13,332 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:58:13,335 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:58:13,878 [INFO] Manual refresh triggered
+2025-10-18 10:58:14,468 [INFO] Manual refresh triggered
+2025-10-18 10:58:14,662 [INFO] Manual refresh triggered
+2025-10-18 10:58:14,838 [INFO] Manual refresh triggered
+2025-10-18 10:58:18,352 [INFO] handle_conn from 192.168.0.102 (source_port=7161) payload: {'ping': 1}
+2025-10-18 10:58:18,353 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:58:18,360 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:58:23,378 [INFO] handle_conn from 192.168.0.102 (source_port=3812) payload: {'ping': 1}
+2025-10-18 10:58:23,379 [DEBUG] Received PING from 192.168.0.102
+2025-10-18 10:58:23,386 [DEBUG] Ping to 192.168.0.102 success 0 ms
+2025-10-18 10:58:27,318 [INFO] Local IP changed: 192.168.0.102 -> 127.0.0.1
+2025-10-18 10:58:27,376 [INFO] Manual refresh triggered
+2025-10-18 10:58:28,388 [INFO] handle_conn from 127.0.0.1 (source_port=2599) payload: {'ping': 1}
+2025-10-18 10:58:28,388 [DEBUG] Received PING from 127.0.0.1
+2025-10-18 10:58:28,392 [DEBUG] Ping to 127.0.0.1 success 0 ms
+2025-10-18 10:58:29,143 [INFO] Manual refresh triggered
+2025-10-18 10:58:29,143 [INFO] Local IP changed: 127.0.0.1 -> 172.20.20.212
+2025-10-18 10:58:33,417 [INFO] handle_conn from 172.20.20.212 (source_port=2612) payload: {'ping': 1}
+2025-10-18 10:58:33,418 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 10:58:33,422 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 10:58:38,425 [INFO] handle_conn from 172.20.20.212 (source_port=2628) payload: {'ping': 1}
+2025-10-18 10:58:38,425 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 10:58:38,430 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 10:58:43,450 [INFO] handle_conn from 172.20.20.212 (source_port=2657) payload: {'ping': 1}
+2025-10-18 10:58:43,450 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 10:58:43,453 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 10:58:48,470 [INFO] handle_conn from 172.20.20.212 (source_port=2684) payload: {'ping': 1}
+2025-10-18 10:58:48,471 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 10:58:48,480 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 10:58:53,494 [INFO] handle_conn from 172.20.20.212 (source_port=2685) payload: {'ping': 1}
+2025-10-18 10:58:53,495 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 10:58:53,499 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 10:58:58,516 [INFO] handle_conn from 172.20.20.212 (source_port=2688) payload: {'ping': 1}
+2025-10-18 10:58:58,517 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 10:58:58,523 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 10:59:03,526 [INFO] handle_conn from 172.20.20.212 (source_port=2689) payload: {'ping': 1}
+2025-10-18 10:59:03,527 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 10:59:03,534 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 10:59:08,559 [INFO] handle_conn from 172.20.20.212 (source_port=2690) payload: {'ping': 1}
+2025-10-18 10:59:08,560 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 10:59:08,567 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 10:59:13,585 [INFO] handle_conn from 172.20.20.212 (source_port=2709) payload: {'ping': 1}
+2025-10-18 10:59:13,585 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 10:59:13,587 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 10:59:18,610 [INFO] handle_conn from 172.20.20.212 (source_port=2710) payload: {'ping': 1}
+2025-10-18 10:59:18,610 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 10:59:18,614 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 10:59:23,626 [INFO] handle_conn from 172.20.20.212 (source_port=2721) payload: {'ping': 1}
+2025-10-18 10:59:23,627 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 10:59:23,635 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 11:02:28,784 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:02:28,826 [INFO] Bound to saved port 12566
+2025-10-18 11:02:29,001 [INFO] handle_conn from 172.20.20.212 (source_port=3088) payload: {'ping': 1}
+2025-10-18 11:02:29,002 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 11:02:29,004 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 11:02:34,032 [INFO] handle_conn from 172.20.20.212 (source_port=3094) payload: {'ping': 1}
+2025-10-18 11:02:34,034 [DEBUG] Received PING from 172.20.20.212
+2025-10-18 11:02:34,041 [DEBUG] Ping to 172.20.20.212 success 0 ms
+2025-10-18 11:02:34,267 [INFO] Manual refresh triggered
+2025-10-18 11:02:34,947 [INFO] Manual refresh triggered
+2025-10-18 11:02:38,993 [INFO] Local IP changed: 172.20.20.212 -> 192.168.0.102
+2025-10-18 11:02:43,999 [INFO] Local IP changed: 192.168.0.102 -> 127.0.0.1
+2025-10-18 11:02:49,013 [INFO] Local IP changed: 127.0.0.1 -> 20.10.26.11
+2025-10-18 11:02:50,403 [INFO] Manual refresh triggered
+2025-10-18 11:02:53,565 [INFO] Manual refresh triggered
+2025-10-18 11:02:53,566 [INFO] Local IP changed: 20.10.26.11 -> 192.168.0.102
+2025-10-18 11:02:54,895 [INFO] Manual refresh triggered
+2025-10-18 11:02:55,516 [INFO] Manual refresh triggered
+2025-10-18 11:02:55,696 [INFO] Manual refresh triggered
+2025-10-18 11:02:55,853 [INFO] Manual refresh triggered
+2025-10-18 11:02:56,023 [INFO] Manual refresh triggered
+2025-10-18 11:02:56,333 [INFO] Manual refresh triggered
+2025-10-18 11:02:56,548 [INFO] Manual refresh triggered
+2025-10-18 11:02:56,736 [INFO] Manual refresh triggered
+2025-10-18 11:02:58,240 [INFO] Manual refresh triggered
+2025-10-18 11:03:09,053 [INFO] Local IP changed: 192.168.0.102 -> 127.0.0.1
+2025-10-18 11:03:09,651 [INFO] Manual refresh triggered
+2025-10-18 11:03:11,718 [INFO] Manual refresh triggered
+2025-10-18 11:03:12,568 [INFO] Manual refresh triggered
+2025-10-18 11:03:12,568 [INFO] Local IP changed: 127.0.0.1 -> 192.168.3.212
+2025-10-18 11:03:13,513 [INFO] Manual refresh triggered
+2025-10-18 11:03:13,924 [INFO] Manual refresh triggered
+2025-10-18 11:03:14,348 [INFO] Manual refresh triggered
+2025-10-18 11:03:14,665 [INFO] Manual refresh triggered
+2025-10-18 11:03:14,834 [INFO] Manual refresh triggered
+2025-10-18 11:03:14,994 [INFO] Manual refresh triggered
+2025-10-18 11:03:15,286 [INFO] Manual refresh triggered
+2025-10-18 11:03:15,469 [INFO] Manual refresh triggered
+2025-10-18 11:03:15,617 [INFO] Manual refresh triggered
+2025-10-18 11:03:15,794 [INFO] Manual refresh triggered
+2025-10-18 11:03:15,948 [INFO] Manual refresh triggered
+2025-10-18 11:03:16,108 [INFO] Manual refresh triggered
+2025-10-18 11:03:16,282 [INFO] Manual refresh triggered
+2025-10-18 11:03:16,441 [INFO] Manual refresh triggered
+2025-10-18 11:03:16,595 [INFO] Manual refresh triggered
+2025-10-18 11:03:17,671 [INFO] Manual refresh triggered
+2025-10-18 11:03:24,060 [INFO] Local IP changed: 192.168.3.212 -> 192.168.0.102
+2025-10-18 11:05:15,328 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:05:15,368 [INFO] Bound to saved port 12566
+2025-10-18 11:05:17,530 [INFO] Manual refresh triggered
+2025-10-18 11:05:17,929 [INFO] Manual refresh triggered
+2025-10-18 11:05:18,085 [INFO] Manual refresh triggered
+2025-10-18 11:05:18,266 [INFO] Manual refresh triggered
+2025-10-18 11:05:18,407 [INFO] Manual refresh triggered
+2025-10-18 11:05:18,580 [INFO] Manual refresh triggered
+2025-10-18 11:12:06,524 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:12:06,570 [INFO] Bound to saved port 12566
+2025-10-18 11:13:29,616 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:13:29,654 [INFO] Bound to saved port 12566
+2025-10-18 11:13:42,648 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:13:42,692 [INFO] Bound to saved port 12566
+2025-10-18 11:15:36,243 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:15:36,282 [INFO] Bound to saved port 12566
+2025-10-18 11:19:29,703 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:19:29,746 [INFO] Bound to saved port 12566
+2025-10-18 11:19:37,334 [ERROR] manual_connect failed
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 512, in manual_connect
+    ip, port = txt.split(":")
+    ^^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 1)
+2025-10-18 11:22:35,209 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:22:35,248 [INFO] Bound to saved port 12566
+2025-10-18 11:23:52,837 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:23:52,878 [INFO] Bound to saved port 12566
+2025-10-18 11:24:23,087 [INFO] Local IP changed: 192.168.0.102 -> 127.0.0.1
+2025-10-18 11:24:33,117 [INFO] Local IP changed: 127.0.0.1 -> 20.10.227.77
+2025-10-18 11:24:33,134 [INFO] Manual refresh triggered
+2025-10-18 11:35:13,789 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:35:13,828 [INFO] Bound to saved port 12566
+2025-10-18 11:39:43,330 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:39:43,373 [INFO] Bound to saved port 12566
+2025-10-18 11:40:34,963 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:40:35,005 [INFO] Bound to saved port 12566
+2025-10-18 11:56:56,001 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 11:56:56,040 [INFO] Bound to saved port 12566
+2025-10-18 12:20:56,164 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 12:20:56,205 [INFO] Bound to saved port 12566
+2025-10-18 12:28:30,027 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 12:28:30,094 [INFO] Bound to saved port 12566
+2025-10-18 12:29:29,812 [INFO] User added peer 192.168.2.55:4616
+2025-10-18 12:29:30,526 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:29:35,556 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:29:40,596 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:29:45,626 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:29:50,657 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:29:55,682 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:30:00,712 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:30:05,744 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:30:10,772 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:30:15,803 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:30:20,833 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:30:25,861 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:30:30,892 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:30:35,921 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:30:40,951 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:30:45,987 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:30:51,023 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:30:56,057 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:31:01,090 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:31:06,126 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:31:11,156 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:31:16,185 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:31:21,215 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:31:26,250 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:31:31,280 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:31:36,310 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:31:41,328 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:31:46,356 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:31:51,387 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:31:56,416 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:32:01,444 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:32:06,477 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:32:11,510 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:32:16,547 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:32:21,117 [DEBUG] handle_conn from 192.168.0.103 (source_port=60832): {'ping': 1}
+2025-10-18 12:32:21,577 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:32:24,582 [ERROR] ping_peer failed for 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-18 12:32:26,188 [DEBUG] handle_conn from 192.168.0.103 (source_port=60851): {'ping': 1}
+2025-10-18 12:32:29,633 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:32:31,283 [DEBUG] handle_conn from 192.168.0.103 (source_port=60860): {'ping': 1}
+2025-10-18 12:32:32,630 [ERROR] ping_peer failed for 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-18 12:32:36,376 [DEBUG] handle_conn from 192.168.0.103 (source_port=60874): {'ping': 1}
+2025-10-18 12:32:37,691 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:32:40,688 [ERROR] ping_peer failed for 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-18 12:32:41,456 [DEBUG] handle_conn from 192.168.0.103 (source_port=60884): {'ping': 1}
+2025-10-18 12:32:45,738 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:32:46,546 [DEBUG] handle_conn from 192.168.0.103 (source_port=60890): {'ping': 1}
+2025-10-18 12:32:48,731 [ERROR] ping_peer failed for 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-18 12:32:51,641 [DEBUG] handle_conn from 192.168.0.103 (source_port=60892): {'ping': 1}
+2025-10-18 12:32:53,825 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:32:56,741 [DEBUG] handle_conn from 192.168.0.103 (source_port=60899): {'ping': 1}
+2025-10-18 12:32:56,831 [ERROR] ping_peer failed for 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-18 12:33:01,823 [DEBUG] handle_conn from 192.168.0.103 (source_port=60905): {'ping': 1}
+2025-10-18 12:33:01,871 [DEBUG] Ping to 192.168.2.55 success 0 ms
+2025-10-18 12:33:03,952 [INFO] Manual refresh triggered
+2025-10-18 12:33:04,867 [ERROR] ping_peer failed for 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-18 12:33:04,876 [INFO] Manual refresh triggered
+2025-10-18 12:33:05,482 [INFO] Manual refresh triggered
+2025-10-18 12:33:06,066 [INFO] Manual refresh triggered
+2025-10-18 12:33:11,961 [ERROR] ping_peer failed for 192.168.2.55:4616
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-18 12:33:12,822 [INFO] Manual refresh triggered
+2025-10-18 12:33:13,418 [INFO] Manual refresh triggered
+2025-10-18 12:33:13,842 [INFO] Manual refresh triggered
+2025-10-18 12:33:14,231 [INFO] Manual refresh triggered
+2025-10-18 12:33:14,510 [INFO] Manual refresh triggered
+2025-10-18 12:33:14,969 [ERROR] ping_peer failed for 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-18 12:33:15,058 [INFO] Manual refresh triggered
+2025-10-18 12:33:15,708 [INFO] Manual refresh triggered
+2025-10-18 12:33:16,233 [INFO] Manual refresh triggered
+2025-10-18 12:33:22,070 [ERROR] ping_peer failed for 192.168.2.55:4616
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-18 12:33:25,074 [ERROR] ping_peer failed for 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-18 12:33:32,168 [ERROR] ping_peer failed for 192.168.2.55:4616
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-18 12:33:35,184 [ERROR] ping_peer failed for 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-18 12:33:42,275 [ERROR] ping_peer failed for 192.168.2.55:4616
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-18 12:33:45,278 [ERROR] ping_peer failed for 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-18 12:33:50,189 [INFO] Manual refresh triggered
+2025-10-18 12:33:50,370 [INFO] Manual refresh triggered
+2025-10-18 12:33:50,612 [INFO] Manual refresh triggered
+2025-10-18 12:33:52,371 [ERROR] ping_peer failed for 192.168.2.55:4616
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-18 12:33:55,386 [ERROR] ping_peer failed for 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-18 12:34:02,436 [ERROR] ping_peer failed for 192.168.2.55:4616
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 1028, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+2025-10-18 12:34:44,591 [INFO] Manual refresh triggered
+2025-10-18 12:34:58,173 [INFO] Manual refresh triggered
+2025-10-18 12:35:06,097 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 12:35:06,135 [INFO] Bound to saved port 12566
+2025-10-18 12:38:53,595 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 12:38:53,640 [INFO] Bound to saved port 12566
+2025-10-18 12:40:57,022 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 12:40:57,081 [INFO] Bound to saved port 12566
+2025-10-18 12:42:15,988 [DEBUG] send_message -> attempting connect to 192.168.0.103:60832 (from listen port 12566) msg=نخن
+2025-10-18 12:42:20,007 [ERROR] send_message failed to 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Desktop\chat_app1\chat_app_unified.py", line 987, in send_message
+    s.connect((ip, port))  #هیچ محدودیتی روی IP وجود نداره.
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-18 12:47:54,043 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 12:47:54,081 [INFO] Bound to saved port 12566
+2025-10-18 12:47:56,481 [INFO] Manual refresh triggered
+2025-10-18 12:47:56,694 [INFO] Manual refresh triggered
+2025-10-18 12:47:56,889 [INFO] Manual refresh triggered
+2025-10-18 12:47:57,044 [INFO] Manual refresh triggered
+2025-10-18 12:48:11,288 [DEBUG] send_message -> attempting connect to 192.168.2.55:4616 (from listen port 12566) msg=5656
+2025-10-18 12:48:11,309 [DEBUG] send_message -> sent to 192.168.2.55:4616
+2025-10-18 13:04:56,991 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 13:04:57,033 [INFO] Read saved port: 12566
+2025-10-18 13:04:57,034 [INFO] Successfully bound to saved port 12566
+2025-10-18 13:04:57,034 [INFO] Listening on port 12566
+2025-10-18 13:49:31,315 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-18 13:49:31,369 [INFO] Read saved port: 12566
+2025-10-18 13:49:31,369 [INFO] Successfully bound to saved port 12566
+2025-10-18 13:49:31,370 [INFO] Listening on port 12566
+2025-10-18 13:50:15,066 [INFO] Local IP changed: 20.10.184.47 -> 192.168.0.102
+2025-10-18 13:50:15,957 [INFO] Manual refresh triggered
+2025-10-19 21:58:27,885 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 21:58:28,185 [INFO] Read saved port: 12566
+2025-10-19 21:58:28,185 [INFO] Successfully bound to saved port 12566
+2025-10-19 21:58:28,186 [INFO] Listening on port 12566
+2025-10-19 21:58:49,322 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 21:58:49,373 [INFO] Bound to saved port 12566
+2025-10-19 21:58:52,558 [ERROR] ping_peer failed for 192.168.2.55:4616
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 852, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-19 21:58:55,580 [ERROR] ping_peer failed for 192.168.0.103:60832
+Traceback (most recent call last):
+  File "C:\Users\ASUS\OneDrive\Documents\chat_app1\chat_app_unified.py", line 852, in ping_peer
+    s.connect((ip, port))
+    ~~~~~~~~~^^^^^^^^^^^^
+TimeoutError: timed out
+2025-10-19 21:59:04,393 [INFO] Starting p2p chat app. SHARED_KEY set: no
+2025-10-19 21:59:04,437 [INFO] Read saved port: 12566
+2025-10-19 21:59:04,438 [INFO] Successfully bound to saved port 12566
+2025-10-19 21:59:04,438 [INFO] Listening on port 12566
