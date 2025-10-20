@@ -311,9 +311,6 @@ class ChatApp:
         self.local_ip = get_local_ip()
         # راه‌اندازی listener برای دریافت پیام‌ها (تعریف شده در جای دیگر کد)
         self.listen_port = self.start_listener()
-        # user-visible name (editable in UI)
-        self.my_name = ""   # will be set from the entry below
-
 
         # نگهداری لیست همتایان (peers) و پنجره‌های چت باز شده
         self.peers = load_peers()
@@ -371,62 +368,6 @@ class ChatApp:
             font=("Segoe UI", 11, "bold")
         )
         self.ip_label.pack(pady=(0, 10))
-
-        # ----- Name entry under "Your IP" -----
-        name_frame = tk.Frame(frame, bg="#e7eefb")
-        name_frame.pack(pady=(0, 8), fill="x")
-
-        tk.Label(name_frame, text="Your name:", bg="#e7eefb", fg="#333", font=("Segoe UI", 10)).pack(side="left", padx=(4,6))
-        self.entry_name = tk.Entry(name_frame, font=("Segoe UI", 10), width=18, relief="flat")
-        self.entry_name.pack(side="left")
-
-        # 🔹 دکمه ذخیره نام
-        save_btn = tk.Button(name_frame, text="💾", bg="#5b9bd5", fg="white",
-                            font=("Segoe UI", 9, "bold"), relief="flat",
-                            command=lambda: _save_name_event())
-        save_btn.pack(side="left", padx=(6, 0))
-
-        # load default if you stored it previously in peers under local_ip (optional)
-        try:
-            self.my_name = self.peers.get(self.local_ip, {}).get("name", "") or ""
-            if self.my_name:
-                self.entry_name.insert(0, self.my_name)
-        except Exception:
-            self.my_name = ""
-
-        # save handler: update self.my_name when entry changes (Enter or focus out)
-        def _save_name_event(e=None):
-            print("Saving name:", self.entry_name.get())
-            try:
-                self.my_name = self.entry_name.get().strip()
-                # optionally persist under local_ip in peers (not required, but helpful)
-                try:
-                    if self.local_ip:
-                        p = self.peers.setdefault(self.local_ip, {})
-                        p["name"] = self.my_name
-                        if self.local_ip:
-                            p = self.peers.setdefault(self.local_ip, {})
-                            p["name"] = self.my_name
-                            p["port"] = self.listen_port   # ✅ این خط رو اضافه کن
-                            save_peers(self.peers)
-
-                        save_peers(self.peers)
-                except Exception:
-                    logger.debug("Failed to persist local name to peers")
-                # refresh UI in case you want to display local name somewhere
-                try:
-                    self.refresh_peers()
-                except Exception:
-                    pass
-            except Exception:
-                logger.exception("Failed to save name from entry")
-
-        # رویدادها برای Enter و خروج از فیلد
-        self.entry_name.bind("<Return>", _save_name_event)
-        self.entry_name.bind("<KeyRelease-Return>", _save_name_event)  # اضافه‌شده
-        self.entry_name.bind("<FocusOut>", _save_name_event)
-        # ----------------------------------------
-
 
         # فریم لیست کاربران (اصلی)
         self.list_frame = tk.Frame(frame, bg="#ffffff", bd=1, relief="solid")
@@ -518,11 +459,7 @@ class ChatApp:
             canvas.pack(side="left", padx=(0, 8))
 
             # متن IP:Port
-            port_str = info.get("port", "")
-            name_str = info.get("name", "")
-            label_text = f"{ip}:{port_str}"
-            if name_str:
-                label_text = f"{label_text}  —  {name_str}"
+            label_text = f"{ip}:{info['port']}"
             if ip in self.new_msg_peers:
                 label_text = "⭐ " + label_text
 
@@ -783,7 +720,7 @@ class ChatApp:
 
             # اطلاع در رابط کاربری
             logger.info("Listening on port %d", port)
-            # messagebox.showinfo("Listening", f"✅ Listening on port {port}")
+            messagebox.showinfo("Listening", f"✅ Listening on port {port}")
             return port
 
         except OSError as e:
@@ -862,7 +799,7 @@ class ChatApp:
         مدیریت اتصال ورودی:
         - دریافت و رمزگشایی پیام
         - تشخیص نوع پیام (PING / PONG / MSG)
-        - ذخیره‌ی نام فرستنده (اگر موجود باشد)
+        - ساده‌سازی شده برای کاهش شلوغی و حذف ذخیره‌ی پینگ‌پونگ
         """
         ip = addr[0]
         try:
@@ -871,57 +808,42 @@ class ChatApp:
                 conn.close()
                 return
 
-            # --- رمزگشایی پیام ---
+            # تلاش برای رمزگشایی پیام
             try:
                 obj = unpack_payload(data)
+                # فقط در حالت debug نمایش داده شود
                 logger.debug("handle_conn from %s (source_port=%s): %s", addr[0], addr[1], obj)
             except Exception as e:
                 logger.warning("Failed to unpack payload from %s: %s", ip, e)
                 conn.close()
                 return
 
-            # --- ذخیره نام فرستنده اگر موجود است ---
-            try:
-                if isinstance(obj, dict):
-                    peer_name = obj.get("name")
-                    if peer_name:
-                        p = self.peers.setdefault(ip, {})
-                        if "port" not in p or not p.get("port"):
-                            p["port"] = addr[1]
-                        p["name"] = peer_name
-                        p["online"] = True
-                        p["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                        save_peers(self.peers)
-                        try:
-                            self.root.after(0, self.refresh_peers)
-                        except Exception:
-                            pass
-            except Exception:
-                logger.exception("Failed to store peer name from incoming payload")
-
-            # --- 1. PING ---
+            # ----------------- 1. PING -----------------
             if isinstance(obj, dict) and "ping" in obj:
+                # پاسخ پونگ برای تأیید آنلاین بودن
                 resp = {"pong": 1, "rtt_ms": 0}
                 try:
                     conn.send(pack_payload(resp))
-                    p = self.peers.setdefault(ip, {})
-                    p["port"] = addr[1]
-                    p["online"] = True
-                    p["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    # به‌روزرسانی وضعیت آنلاین در peers
+                    if ip not in self.peers:
+                        self.peers[ip] = {"port": addr[1], "online": True}
+                    else:
+                        self.peers[ip]["online"] = True
+                    self.peers[ip]["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     save_peers(self.peers)
                 except Exception:
                     logger.debug("Failed to send PONG to %s", ip)
 
-            # --- 2. PONG ---
+            # ----------------- 2. PONG -----------------
             elif isinstance(obj, dict) and "pong" in obj:
-                p = self.peers.setdefault(ip, {})
-                p["port"] = addr[1]
-                p["online"] = True
-                p["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                save_peers(self.peers)
+                # فقط به‌روزرسانی وضعیت آنلاین، بدون ثبت یا لاگ
+                if ip in self.peers:
+                    self.peers[ip]["online"] = True
+                    self.peers[ip]["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    save_peers(self.peers)
                 logger.debug("Received PONG from %s", ip)
 
-            # --- 3. MSG ---
+            # ----------------- 3. MSG -----------------
             elif isinstance(obj, dict) and "msg" in obj:
                 msg = obj["msg"]
                 sender_port = None
@@ -931,12 +853,10 @@ class ChatApp:
                     except Exception:
                         sender_port = obj.get("from_port")
 
-                # پیام تست داخلی
+                # پیام تست داخلی را نادیده بگیر
                 if msg == "__TEST_REPLY__":
                     if sender_port:
-                        p = self.peers.setdefault(ip, {})
-                        p["port"] = sender_port
-                        p["online"] = True
+                        self.peers[ip] = {"port": sender_port, "online": True}
                         save_peers(self.peers)
                     try:
                         self.root.after(0, self.refresh_peers)
@@ -944,27 +864,25 @@ class ChatApp:
                         logger.debug("Failed to refresh peers after TEST_REPLY")
                     return
 
-                # پیام واقعی
+                # پیام واقعی: ذخیره و نمایش
                 try:
                     record_history(ip, "in", msg, entry_type="msg")
                 except Exception:
                     logger.warning("Failed to record incoming msg from %s", ip)
 
                 logger.info("Received message from %s", ip)
-
                 if sender_port:
-                    p = self.peers.setdefault(ip, {})
-                    p["port"] = sender_port
-                    p["online"] = True
+                    self.peers[ip] = {"port": sender_port, "online": True}
                     save_peers(self.peers)
 
+                # رفرش رابط کاربری
                 try:
                     self.root.after(0, self.refresh_peers)
                     self.root.after(0, lambda ip=ip, msg=msg: self.display_incoming(ip, msg))
                 except Exception:
                     logger.warning("Failed to update UI after message from %s", ip)
 
-            # --- 4. Unknown ---
+            # ----------------- 4. Unknown -----------------
             else:
                 logger.debug("Unknown object from %s: %s", ip, obj)
 
@@ -1075,60 +993,33 @@ class ChatApp:
 
     def send_message(self, ip, port, msg):
         """
-        ارسال پیام به همتا (peer) با کنترل کامل خطا و ثبت لاگ دقیق.
+        ارسال پیام به یک همتا؛ لاگ مفصل برای دیباگ.
         """
         try:
-            # اطمینان از عدد بودن پورت
             try:
                 port = int(port)
             except Exception:
                 logger.warning("send_message: port is not int for %s: %r", ip, port)
 
-            # ساخت سوکت و اتصال
-            logger.debug(
-                "send_message -> connecting to %s:%s (from listen port %s), msg=%s",
-                ip, port, self.listen_port,
-                msg if len(msg) < 100 else msg[:100] + "..."
-            )
+            logger.debug("send_message -> attempting connect to %s:%s (from listen port %s) msg=%s", ip, port, self.listen_port, msg if len(msg)<100 else msg[:100]+"...")
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.settimeout(4)
-            s.connect((ip, port))
+            s.settimeout(4)  # timeout for connect/send
+            s.connect((ip, port))  #هیچ محدودیتی روی IP وجود نداره.
 
-            # ---- آماده‌سازی پیام ----
-            try:
-                name_val = ""
-                if hasattr(self, "entry_name"):
-                    name_val = self.entry_name.get().strip()
-                elif hasattr(self, "my_name"):
-                    name_val = self.my_name
-            except Exception:
-                name_val = ""
 
             payload = {"msg": msg, "from_port": self.listen_port}
-
-            # اطمینان از اینکه نام قابل رمزگذاری است (UTF-8 safe)
-            if name_val:
-                safe_name = name_val.encode("utf-8", "ignore").decode("utf-8", "ignore")
-                payload["name"] = safe_name
-
-            # ارسال داده بسته‌بندی‌شده
-            packed = pack_payload(payload)
-            s.send(packed)
-
-            # بستن امن سوکت
+            s.send(pack_payload(payload))
+            # give remote a moment (optional) then close
             try:
                 s.shutdown(socket.SHUT_WR)
             except Exception:
                 pass
             s.close()
-
-            logger.debug("send_message -> sent successfully to %s:%s", ip, port)
+            logger.debug("send_message -> sent to %s:%s", ip, port)
             return True
-
-        except Exception as e:
-            logger.exception(f"send_message failed to {ip}:{port} ({e})")
+        except Exception:
+            logger.exception("send_message failed to %s:%s", ip, port)
             return False
-
 
     def check_peers_online(self):
         """
@@ -1145,14 +1036,8 @@ class ChatApp:
                             continue  # بیشتر از ۱ دقیقه از آخرین تماس گذشته، فعلاً پینگ نکن
                     except:
                         pass
-                port = info.get("port")
-                if not port:
-                    continue  # اگر port تعریف نشده، برو سراغ بعدی
-                ok = self.ping_peer(ip, port)
-
+                ok = self.ping_peer(ip, info["port"])
                 info["online"] = ok
-                self.root.after(0, self.refresh_peers)
-
 
             # بعد از بررسی همه همتاها، UI لیست کاربران را رفرش می‌کند
             self.refresh_peers()
@@ -1162,34 +1047,61 @@ class ChatApp:
 
 
     def ping_peer(self, ip, port):
+        """
+        ارسال پینگ {"ping":1} به همتا و انتظار برای پاسخ {"pong":1, "rtt_ms":...}.
+        پینگ/پونگ هرگز در UI چت نمایش داده نمی‌شوند؛ فقط به عنوان entry_type="ping" در تاریخچه ذخیره می‌شوند.
+        """
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.settimeout(3)
+            s.settimeout(3)  # زمان مجاز برای پاسخ
             start = time.time()
+
+            # اتصال به همتا
             s.connect((ip, port))
+
+            # ارسال پیام پینگ
             s.send(pack_payload({"ping": 1}))
+
+            # اطلاع دادن به سیستم مقصد که دیگر داده‌ای ارسال نمی‌شود
             try:
                 s.shutdown(socket.SHUT_WR)
             except Exception:
                 pass
-            data = s.recv(8192)
+
+            # دریافت پاسخ پونگ (یا خالی)
+            data = b""
+            try:
+                data = s.recv(8192)
+            except Exception:
+                pass
+
+            # بازکردن بسته پونگ دریافتی
+            try:
+                obj = unpack_payload(data) if data else {}
+            except Exception as e:
+                logger.exception("Failed to unpack pong from %s: %s", ip, e)
+                s.close()
+                return False
+
             s.close()
 
-            obj = unpack_payload(data) if data else {}
+            # محاسبه‌ی زمان رفت و برگشت پینگ به میلی‌ثانیه
             elapsed_ms = int((time.time() - start) * 1000)
 
+            # اگر پاسخ معتبر پونگ بود
             if isinstance(obj, dict) and obj.get("pong"):
+                rtt_val = obj.get("rtt_ms", elapsed_ms)
+                # فقط وضعیت آنلاین را به‌روزرسانی کن، بدون ذخیره در history
                 if ip in self.peers:
                     self.peers[ip]["online"] = True
                     self.peers[ip]["last_seen"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                     save_peers(self.peers)
+                logger.debug("Ping to %s success %d ms", ip, rtt_val)
                 return True
 
-        except Exception as e:
-            logger.warning("ping_peer failed for %s:%s (%s)", ip, port, e)
-            if ip in self.peers:
-                self.peers[ip]["online"] = False
-                save_peers(self.peers)
+
+        except Exception:
+            logger.exception("ping_peer failed for %s:%s", ip, port)
             return False
 
 
